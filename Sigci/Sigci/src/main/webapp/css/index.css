@@ -1,0 +1,42 @@
+.circulomitad {
+    width: 100%;
+    height: 50vh; /* 50% de la altura del viewport */
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.circulomitad:before {
+    content: "";
+    display: block;
+    width: 200%; /* Doble del ancho del contenedor para asegurar que cubra toda la anchura */
+    height: 200%;
+    border-radius: 50%; /* Hacer el círculo */
+    background-color: #5784E6;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.header {
+    background-color: #5884E7;
+    color: white;
+    padding: 10px 0;
+}
+.container {
+    text-align: center;
+    padding: 50px;
+}
+.btn-custom {
+    background-color: #0B1956;
+    margin: 10px;
+    width: 150px;
+}
+.logo{
+    content: " ";
+    position: absolute;
+    z-index:1;
+    top: 80%;
+
+}
