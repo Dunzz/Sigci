@@ -10,16 +10,17 @@ import utez.edu.mx.sicci.dao.UserDao;
 import utez.edu.mx.sicci.model.User;
 
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet (name = "UserServlet", value = "/signIn")
 public class UserServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String correo = request.getParameter("correo");
+        String email = request.getParameter("email");
         String pass = request.getParameter("pass");
         UserDao dao = new UserDao();
-        User u = dao.getOne(correo, pass);
+        User u = dao.getOne(email, pass);
 
         String ruta = "login.jsp";
 

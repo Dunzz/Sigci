@@ -43,7 +43,7 @@
         <td><%=u.getPass()%></td>
         <td><%=u.getEstadoPass()%></td>
         <td><%=u.getEstadoUsuario()%></td>
-        <td><%=u.getNombreUsuario()%></td>
+        <td><%=u.getNombreUsuario()%></td   >
         <td><%=u.getFechaCreacion()%></td>
         <td><%=u.getTipoUsuario()%></td>
         <td><%=u.getIdDIvision()%></td>

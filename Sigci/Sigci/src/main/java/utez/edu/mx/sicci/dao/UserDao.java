@@ -12,6 +12,7 @@ import java.util.List;
 
 
 public class UserDao {
+    private static final String SELECT_ALL_USERS = "SELECT * FROM usuario";
 
     // Encontrar el usuario a partir del correo
     public User getOne(String correo, String pass){
@@ -87,39 +88,38 @@ public class UserDao {
         return flag;
     }
     public ArrayList<User> getAll() {
-        ArrayList<User> users = new ArrayList<>();
-        String query = "SELECT * FROM usuarios";
-        try {
+        ArrayList<User> usuario = new ArrayList<>();
+        try(
             Connection con = DatabaseConnectionManager.getConnection();
-            PreparedStatement ps = con.prepareStatement(query);
-            ResultSet rs = ps.executeQuery();
+            PreparedStatement ps = con.prepareStatement(SELECT_ALL_USERS);
+            ResultSet rs = ps.executeQuery()){
             while (rs.next()) { // Iteramos cada fila resultado de la query
                 User u = new User();
                 u.setId(rs.getInt("id_usuario"));
                 u.setNombre(rs.getString("nombre"));
-                u.setApellido(rs.getString("apellido"));
-                u.setCorreo(rs.getString("correo"));
+                u.setApellido(rs.getString("apellidos"));
+                u.setCorreo(rs.getString("email"));
                 u.setCurp(rs.getString("curp"));
-                u.setFechaNacimiento(rs.getString("fechaNacimiento"));
-                u.setPass(rs.getString("pass"));
-                u.setEstadoPass(rs.getString("estadoPass"));
-                u.setEstadoUsuario(rs.getInt("estadoUsuario"));
-                u.setNombreUsuario(rs.getString("nombreUsuario"));
-                u.setFechaCreacion(rs.getString("fechaCreacion"));
-                u.setTipoUsuario(rs.getInt("tipoUsuario"));
-                u.setIdDIvision(rs.getInt("idDIvision"));
-                u.setIdGrupo(rs.getInt("idGrupo"));
-                users.add(u);
+                u.setFechaNacimiento(rs.getString("fecha_nacimiento"));
+                u.setPass(rs.getString("password"));
+                u.setEstadoPass(rs.getString("estado_password"));
+                u.setEstadoUsuario(rs.getInt("estado_usuario"));
+                u.setNombreUsuario(rs.getString("nombre_usuario"));
+                u.setFechaCreacion(rs.getString("fecha_creacion"));
+                u.setTipoUsuario(rs.getInt("idtipo_usuario"));
+                u.setIdDIvision(rs.getInt("id_division"));
+                u.setIdGrupo(rs.getInt("id_grupo"));
+                usuario.add(u);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return users;
+        return usuario;
     }
 
     public boolean update(int id, User user) {
         boolean updated = false;
-        String sql = "UPDATE usuarios SET nombre = ?, apellidos = ?, correo = ?, curp = ?, fecha_nacimiento = ?, pass = ?, nombre_usuario = ?, idtipo_usuario = ?, id_division = ? WHERE id = ?";
+        String sql = "UPDATE usuario SET nombre = ?, apellidos = ?, correo = ?, curp = ?, fecha_nacimiento = ?, pass = ?, nombre_usuario = ?, idtipo_usuario = ?, id_division = ? WHERE id = ?";
         try (Connection conn = DatabaseConnectionManager.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, user.getNombre());
@@ -140,30 +140,30 @@ public class UserDao {
     }
 
     public User findById(int id) {
-        User user = null;
-        String sql = "SELECT * FROM usuarios WHERE id = ?";
+        User u = null;
+        String sql = "SELECT * FROM usuario WHERE id = ?";
         try (Connection conn = DatabaseConnectionManager.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, id);
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
-                user = new User();
-                user.setId(rs.getInt("id"));
-                user.setNombre(rs.getString("nombre"));
-                user.setApellido(rs.getString("apellidos"));
-                user.setCorreo(rs.getString("correo"));
-                user.setCurp(rs.getString("curp"));
-                user.setFechaNacimiento(rs.getString("fecha_nacimiento"));
-                user.setPass(rs.getString("pass"));
-                user.setNombreUsuario(rs.getString("nombre_usuario"));
-                user.setTipoUsuario(rs.getInt("idtipo_usuario"));
-                user.setIdDIvision(rs.getInt("id_division"));
+                u = new User();
+                u.setId(rs.getInt("id"));
+                u.setNombre(rs.getString("nombre"));
+                u.setApellido(rs.getString("apellidos"));
+                u.setCorreo(rs.getString("correo"));
+                u.setCurp(rs.getString("curp"));
+                u.setFechaNacimiento(rs.getString("fecha_nacimiento"));
+                u.setPass(rs.getString("pass"));
+                u.setNombreUsuario(rs.getString("nombre_usuario"));
+                u.setTipoUsuario(rs.getInt("idtipo_usuario"));
+                u.setIdDIvision(rs.getInt("id_division"));
                 // Rellenar otros campos si es necesario
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return user;
+        return u;
     }
 
 
