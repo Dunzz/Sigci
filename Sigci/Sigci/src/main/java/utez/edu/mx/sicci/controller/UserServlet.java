@@ -17,7 +17,7 @@ public class UserServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String email = request.getParameter("email");
+        String email = request.getParameter("correo");
         String pass = request.getParameter("pass");
         UserDao dao = new UserDao();
         User u = dao.getOne(email, pass);
