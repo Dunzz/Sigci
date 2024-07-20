@@ -59,13 +59,12 @@
     <div class="row">
         <div class="col-md-6 col-lg-4">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body" onclick="irAregistrar()" >
                     <h5 class="card-title"> <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                                                  width="200.000000pt" height="75.000000pt" viewBox="0 0 512.000000 512.000000"
                                                  preserveAspectRatio="xMidYMid meet">
 
-                        <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-                           fill="#002DA0" stroke="none">
+                        <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="#002DA0" stroke="none">
                             <path d="M2030 4483 c-515 -81 -854 -482 -853 -1008 1 -150 26 -268 86 -399
                    138 -298 418 -515 744 -577 94 -17 318 -6 418 21 175 47 382 171 496 298 256
                    285 325 645 195 1025 -113 329 -391 564 -749 632 -72 14 -271 19 -337 8z"/>
@@ -180,7 +179,7 @@
                    -221 20 -108 49 -108 231 0 280 37 17 66 20 221 20 l177 0 0 178 c0 154 3 183
                    20 220 34 74 130 102 218 62z"/>
                         </g>
-                    </svg><br><center>Asignar materias a docente</center></h5>
+                    </svg><br><center>Asignar docente a meterias</center></h5>
                 </div>
             </div>
         </div>
@@ -308,7 +307,7 @@
     </g>
 </svg>
 </footer>
-<script src="<%= request.getContextPath() %>/js/app.js"></script>
+<script src="<%= request.getContextPath() %>/js/enlaces.js"></script>
 <script src="<%= request.getContextPath() %>/js/bootstrap.js"></script>
 </body>
 </html>
