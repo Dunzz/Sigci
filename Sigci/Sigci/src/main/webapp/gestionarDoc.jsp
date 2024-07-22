@@ -113,7 +113,7 @@
                    -36 -37z"/>
                         </g>
                     </svg>
-                        <br><center>Actualizar docente</center></h5>
+                        <br><a href="cargarMateria"><center>Actualizar docente</center></a></h5>
                 </div>
             </div>
         </div>

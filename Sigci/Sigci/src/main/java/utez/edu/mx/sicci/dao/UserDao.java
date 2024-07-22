@@ -1,5 +1,6 @@
 package utez.edu.mx.sicci.dao;
 
+import utez.edu.mx.sicci.model.Materia;
 import utez.edu.mx.sicci.model.User;
 import utez.edu.mx.sicci.utils.DatabaseConnectionManager;
 
@@ -7,12 +8,12 @@ import javax.xml.crypto.Data;
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 
 public class UserDao {
     private static final String SELECT_ALL_USERS = "SELECT * FROM usuario";
+
 
     // Encontrar el usuario a partir del correo
     public User getOne(String correo, String pass){
@@ -116,6 +117,8 @@ public class UserDao {
         }
         return usuario;
     }
+
+
 
     public boolean update(int id, User user) {
         boolean updated = false;

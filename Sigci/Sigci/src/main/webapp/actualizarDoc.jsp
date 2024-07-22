@@ -1,4 +1,8 @@
-<%--
+<%@ page import="java.util.List" %>
+<%@ page import="utez.edu.mx.sicci.model.Materia" %>
+<%@ page import="utez.edu.mx.sicci.model.Grupo" %>
+<%@ page import="utez.edu.mx.sicci.model.Carrera" %>
+<%@ page import="utez.edu.mx.sicci.model.Division" %><%--
   Created by IntelliJ IDEA.
   User: Angel
   Date: 19/07/2024
@@ -78,34 +82,62 @@
                 <div class="space-y-8">
                     <div class="space-y-4">
                         <label for="division" class="block text-lg font-semibold">Division:</label>
-                        <select id="division" class="input">
-                            <option value="Division A">Division A</option>
-                            <option value="Division B">Division B</option>
-                            <option value="Division C">Division C</option>
+                        <select name="division" id="division" class="input" required>
+                            <<%
+                            List<Division> divisionList = (List<Division>) request.getAttribute("divisionList");
+                            if (divisionList != null){
+                                for (Division division : divisionList){
+                        %>
+                            <option value="<%= division.getId_division() %>"><%= division.getNombre() %></option>
+                            <%
+                                    }
+                                }
+                            %>
                         </select>
                     </div>
                     <div class="space-y-4">
                         <label for="carrera" class="block text-lg font-semibold">Carrera:</label>
-                        <select id="carrera" class="input">
-                            <option value="Carrera X">Carrera X</option>
-                            <option value="Carrera Y">Carrera Y</option>
-                            <option value="Carrera Z">Carrera Z</option>
+                        <select name="carrera" id="carrera" class="input" required>
+                            <%
+                                List<Carrera> carreraList = (List<Carrera>) request.getAttribute("carreraList");
+                                if (carreraList != null){
+                                    for (Carrera carrera : carreraList){
+                            %>
+                            <option value="<%= carrera.getId_carrrera() %>"><%= carrera.getDescripcion() %></option>
+                            <%
+                                    }
+                                }
+                            %>
                         </select>
                     </div>
                     <div class="space-y-4">
                         <label for="grupo" class="block text-lg font-semibold">Grupo:</label>
-                        <select id="grupo" class="input">
-                            <option value="Grupo 1">Grupo 1</option>
-                            <option value="Grupo 2">Grupo 2</option>
-                            <option value="Grupo 3">Grupo 3</option>
+                        <select  name="grupo" id="grupo" class="input" required>
+                            <<%
+                                List<Grupo> grupoList = (List<Grupo>) request.getAttribute("grupoList");
+                                if (grupoList != null){
+                                    for (Grupo grupo : grupoList){
+                            %>
+                            <option value="<%= grupo.getId_grupo() %>"><%= grupo.getDescripcion() %></option>
+                            <%
+                                    }
+                                }
+                            %>
                         </select>
                     </div>
                     <div class="space-y-4">
                         <label for="materia" class="block text-lg font-semibold">Materia:</label>
-                        <select id="materia" class="input">
-                            <option value="Materia A">Materia A</option>
-                            <option value="Materia B">Materia B</option>
-                            <option value="Materia C">Materia C</option>
+                        <select name="materia" id="materia" class="input" required>
+                            <%
+                                List<Materia> materiaList = (List<Materia>) request.getAttribute("materiaList");
+                                if (materiaList != null){
+                                    for (Materia materia : materiaList){
+                            %>
+                            <option value="<%= materia.getId_materia() %>"><%= materia.getNombre_materia() %></option>
+                            <%
+                                    }
+                                }
+                            %>
                         </select>
                     </div>
                     <input type="submit" class="button" value="Guardar cambios">
