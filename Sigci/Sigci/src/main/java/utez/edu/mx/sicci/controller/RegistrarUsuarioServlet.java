@@ -21,12 +21,10 @@ public class RegistrarUsuarioServlet extends HttpServlet {
         u.setCurp(req.getParameter("curp"));
         u.setFechaNacimiento(req.getParameter("fechaNacimiento"));
         u.setPass(req.getParameter("pass"));
-        //u.setEstadoPass(Integer.parseInt(req.getParameter("estadoPass")));
-        //u.setId_tipo_usuario(Integer.parseInt(req.getParameter("estadoUsuario")));
+
         u.setNombreUsuario(req.getParameter("nombreUsuario"));
         u.setTipoUsuario(Integer.parseInt(req.getParameter("idtipo_usuario")));
         u.setIdDIvision(Integer.parseInt(req.getParameter("id_division")));
-        //u.setIdGrupo(Integer.parseInt(req.getParameter("id_grupo")));
 
         //Se debe mandar a llamar un DAO que permita insertar
         UserDao dao = new UserDao();

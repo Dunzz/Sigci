@@ -9,6 +9,9 @@ public class Grupo {
         this.descripcion = descripcion;
     }
 
+    public Grupo() {
+    }
+
     public int getId_grupo() {
         return id_grupo;
     }

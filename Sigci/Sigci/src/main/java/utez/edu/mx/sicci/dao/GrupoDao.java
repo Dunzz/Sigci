@@ -12,6 +12,7 @@ import java.util.List;
 
 public class GrupoDao {
 
+
     private static final String SELECT_ALL_GRUPO = "SELECT * FROM grupo";
 
     public List<Grupo> getAllGrupo() {
@@ -30,5 +31,26 @@ public class GrupoDao {
         }
         return grupo;
     }
+
+    public boolean insert (Grupo grupo){
+            boolean flag = false;
+            String query = "INSERT INTO grupo(id_grupo, descripcion) values(?,?)";
+
+            try {
+                Connection con = DatabaseConnectionManager.getConnection();
+                PreparedStatement ps = con.prepareStatement(query);
+                ps.setInt(1,grupo.getId_grupo());
+                ps.setString(2,grupo.getDescripcion());
+
+                if(ps.executeUpdate()==1){
+                    flag = true; //si se inserto el dato
+                }
+            }catch(SQLException e){
+                e.printStackTrace();
+            }
+        return flag;
+    }
+
+
 
 }
