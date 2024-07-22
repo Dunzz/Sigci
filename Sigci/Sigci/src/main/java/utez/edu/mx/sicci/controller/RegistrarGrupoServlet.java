@@ -19,7 +19,6 @@ public class RegistrarGrupoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Grupo grupo = new Grupo();
-        grupo.setId_grupo(Integer.parseInt(req.getParameter("id_usuario")));
         grupo.setDescripcion(req.getParameter("descripcion"));
 
         // Se llama al DAO para insertar
@@ -27,7 +26,6 @@ public class RegistrarGrupoServlet extends HttpServlet {
         GrupoDao dao = new GrupoDao();
         if (dao.insert(grupo)){
             resp.sendRedirect("login.jsp");
-
         }else {
             // La info no a sido insertada y regresa al formulario
             HttpSession session = req.getSession();

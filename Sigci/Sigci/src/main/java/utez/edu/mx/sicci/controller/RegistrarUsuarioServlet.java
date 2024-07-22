@@ -21,7 +21,6 @@ public class RegistrarUsuarioServlet extends HttpServlet {
         u.setCurp(req.getParameter("curp"));
         u.setFechaNacimiento(req.getParameter("fechaNacimiento"));
         u.setPass(req.getParameter("pass"));
-
         u.setNombreUsuario(req.getParameter("nombreUsuario"));
         u.setTipoUsuario(Integer.parseInt(req.getParameter("idtipo_usuario")));
         u.setIdDIvision(Integer.parseInt(req.getParameter("id_division")));
