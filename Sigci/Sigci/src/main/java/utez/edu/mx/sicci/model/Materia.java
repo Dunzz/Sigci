@@ -9,6 +9,9 @@ public class Materia {
         this.nombre_materia = nombre_materia;
     }
 
+    public Materia() {
+    }
+
     public int getId_materia() {
         return id_materia;
     }
