@@ -1,8 +1,7 @@
 <%@ page import="java.util.List" %>
-<%@ page import="utez.edu.mx.sicci.model.Materia" %>
-<%@ page import="utez.edu.mx.sicci.model.Grupo" %>
-<%@ page import="utez.edu.mx.sicci.model.Carrera" %>
-<%@ page import="utez.edu.mx.sicci.model.Division" %><%--
+<%@ page import="utez.edu.mx.sicci.model.*" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="utez.edu.mx.sicci.dao.UserDao" %><%--
   Created by IntelliJ IDEA.
   User: Angel
   Date: 19/07/2024
@@ -15,7 +14,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Page</title>
-
+    <link href="enlaces.js">
     <link href="<%= request.getContextPath() %>/css/bootstrap.css" rel="stylesheet">
     <link href="<%= request.getContextPath() %>/css/actualizarDoc.css" rel="stylesheet">
 </head>
@@ -62,8 +61,18 @@
                 <div class="space-y-8">
                     <div class="space-y-4">
                         <label for="nombre" class="block text-lg font-semibold">Nombre:</label>
-                        <input id="nombre" placeholder="Nombre de prueba del docente" class="input">
-                    </div>
+                        <select name="nombre" id="nombre" class="input" required>
+                            <<%
+                            ArrayList<User> userArrayList = (ArrayList<User>) request.getAttribute("userArrayList");
+                            if (userArrayList != null){
+                                for (User user : userArrayList){
+                        %>
+                            <option value="<%= user.getId() %>"><%= user.getNombre() %> <%= user.getApellido() %> </option>
+                            <%
+                                    }
+                                }
+                            %>
+                        </select>                    </div>
                     <div class="p-4 shadow-lg rounded-lg bg-white">
                         <h2 class="text-lg font-semibold">Datos del Docente:</h2>
                         <div class="scroll-area h-40 mt-4">
