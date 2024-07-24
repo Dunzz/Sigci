@@ -45,8 +45,9 @@
         </svg>
         Administrador
     </div>
-    <button class="logout-button">Salir</button>
+    <a class="logout-button" href="index.jsp">Salir</a>
 </header>
+<div class="medioCirculo"></div>
 <div class="container">
     <div class="login-box">
         <center><h2>Registrar Docentes</h2></center>
@@ -69,10 +70,6 @@
                 <label>Curp</label>
             </div>
             <div class="user-box">
-                <input type="text" id="user" name="nombreUsuario" required>
-                <label> Usuario</label>
-            </div>
-            <div class="user-box">
                 <input type="email" id="email" name="correo" required>
                 <label>Correo institucional</label>
             </div>
@@ -84,12 +81,23 @@
                     <option value="3">Invitado</option>
                 </select>
             </div>
+            <br>
             <div class="form-group">
                 <select class="form-control" id="id_division" name="id_division" required>
                     <option value="">División</option>
                     <option value="1">Div1</option>
                     <option value="2">Div2</option>
                     <option value="3">Div3</option>
+                </select>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <select class="form-control" id="id_grupo" name="id_grupo" required>
+                    <option value="">Grupo</option>
+                    <option value="1">Grupo1</option>
+                    <option value="2">Grupo2</option>
+                    <option value="3">Grupo3</option>
                 </select>
             </div>
             <input type="hidden" value="porDefinir" name="estadoPass" />

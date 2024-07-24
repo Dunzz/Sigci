@@ -50,7 +50,7 @@
     </div>
 
 
-    <button class="logout-button">Salir</button>
+    <a class="logout-button" href="index.jsp">Salir</a>
 </header>
 
 
@@ -311,7 +311,7 @@
                      -40 c41 -38 28 -105 -25 -127 -57 -24 -120 28 -107 89 13 58 87 80 132 38z"/>
                             </g>
                         </svg>
-                        <center>Gestionar materias</center>
+                        <center><a href="gestionarMat.jsp">Gestionar materias</a></center>
                     </h5>
                     <p class="card-text">
                     <center>Permite administrar las materias.</center>

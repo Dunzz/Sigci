@@ -46,7 +46,7 @@
 
 
 
-    <button class="logout-button">Salir</button>
+    <a class="logout-button" href="index.jsp">Salir</a>
 </header>
 
 
@@ -62,7 +62,7 @@
                                                  preserveAspectRatio="xMidYMid meet">
 
                         <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-                           fill="#000000" stroke="none">
+                           fill="#0B1956" stroke="none">
                             <path d="M355 4901 c-71 -18 -140 -74 -178 -145 l-22 -41 0 -2140 c0 -2085 0
 -2141 19 -2190 25 -65 94 -137 159 -166 l52 -24 1633 -3 1633 -2 24 24 c25 25
 25 25 25 231 l0 205 131 0 c72 0 139 5 149 10 27 15 40 71 40 177 l0 92 38 6
@@ -83,7 +83,7 @@ l-88 12 0 1003 c0 714 -3 1010 -11 1027 -6 14 -22 30 -36 36 -27 13 -3566 14
                         </g>
                     </svg>
 
-                        <br> <center><a href="registrar.jsp">Registrar materias</a></center></h5>
+                        <br> <center><a href="registrarMateria.jsp">Registrar materias</a></center></h5>
                 </div>
             </div>
         </div>
@@ -95,7 +95,7 @@ l-88 12 0 1003 c0 714 -3 1010 -11 1027 -6 14 -22 30 -36 36 -27 13 -3566 14
                                                  preserveAspectRatio="xMidYMid meet">
 
                         <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-                           fill="#000000" stroke="none">
+                           fill="#0B1956" stroke="none">
                             <path d="M2380 5114 c-19 -2 -78 -9 -130 -15 -461 -51 -923 -247 -1295 -546
 -543 -438 -877 -1061 -946 -1763 -14 -151 -6 -450 16 -600 168 -1118 1045
 -1996 2158 -2161 254 -37 555 -35 789 6 98 17 149 48 193 120 26 42 30 58 30

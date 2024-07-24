@@ -49,7 +49,7 @@
 
 
 
-    <button class="logout-button">Salir</button>
+    <a class="logout-button" href="index.jsp">Salir</a>
 </header>
 
 
