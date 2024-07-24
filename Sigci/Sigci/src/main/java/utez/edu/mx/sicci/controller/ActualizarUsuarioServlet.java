@@ -27,4 +27,6 @@ public class ActualizarUsuarioServlet extends HttpServlet {
         resp.sendRedirect("editarUsuario.jsp");
 
         }
+
+        // hola
 }
