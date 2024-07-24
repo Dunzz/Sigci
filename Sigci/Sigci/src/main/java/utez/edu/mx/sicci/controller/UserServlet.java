@@ -30,7 +30,7 @@ public class UserServlet extends HttpServlet {
         } else {
             //Que el usuario No existe
             HttpSession sesion = request.getSession();
-            sesion.setAttribute("mensaje", "El usuario no existe en la BD");
+            ruta = "Alerta.jsp" ;
         }
 
          response.sendRedirect(ruta);
