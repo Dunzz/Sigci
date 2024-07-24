@@ -105,6 +105,7 @@
             <input type="hidden" value="1" name="estadoUsuario"/>
             <center><input type="submit" class="registrar" value="registrar"></center>
         </form>
+        <a href="getListaDocentes">Volver a la lista</a>
     </div>
     <div class="logo">
         <svg version="1.0" xmlns="http://www.w3.org/2000/svg"

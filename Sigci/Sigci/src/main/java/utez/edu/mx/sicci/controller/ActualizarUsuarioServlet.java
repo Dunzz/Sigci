@@ -10,23 +10,36 @@ import utez.edu.mx.sicci.dao.UserDao;
 import utez.edu.mx.sicci.model.User;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.sql.SQLException;
 
 @WebServlet(name = "ActualizarUsuarioServlet", value = "/actualizarUsuario")
 public class ActualizarUsuarioServlet extends HttpServlet {
+    private UserDao userDao;
+
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void init(){
+        userDao = new UserDao();
+    }
 
-        int id = Integer.parseInt(req.getParameter("id"));
-        //Para buscar la info del usuario
-        UserDao dao = new UserDao();
-        User u = dao.findById(id);
-        HttpSession sesion = req.getSession();
-        sesion.setAttribute("usuario", u);
-        //despues mandarla a un formulario para su edición
-        resp.sendRedirect("editarUsuario.jsp");
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+        try {
+            int id_usuario = Integer.parseInt(req.getParameter("id_usuario"));
+            String nombre = req.getParameter("nombre");
+            String apellidos = req.getParameter("apellidos");
+            String email = req.getParameter("email");
+            String curp = req.getParameter("curp");
+            int estado_usuario = Integer.parseInt(req.getParameter("estado_usuario"));
+            String nombre_usuario = req.getParameter("nombre_usuario");
 
+            User user = new User(id_usuario, nombre, apellidos, email, curp ,estado_usuario,nombre_usuario);
+            userDao.update(user);
+            resp.sendRedirect("getListaDocentes");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new ServletException(e);
         }
+    }
 
         // hola
 }

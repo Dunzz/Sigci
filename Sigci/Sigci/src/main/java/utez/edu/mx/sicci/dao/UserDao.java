@@ -10,9 +10,13 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
+import static utez.edu.mx.sicci.utils.DatabaseConnectionManager.getConnection;
+
 
 public class UserDao {
     private static final String SELECT_ALL_USERS = "SELECT * FROM usuario where idtipo_usuario = 2";
+
+    private static final String     SELECT_USER_BY_ID = "SELECT id_usuario, nombre, apellidos, email, curp, nombre_usuario, estado_usuario FROM usuario WHERE id_usuario = ?";
 
 
     // Encontrar el usuario a partir del correo
@@ -23,7 +27,7 @@ public class UserDao {
 
         try{
             //Conectarme a la base de datos
-            Connection con = DatabaseConnectionManager.getConnection();
+            Connection con = getConnection();
             //Me prepara la consulta para ser ejecutada
             PreparedStatement ps = con.prepareStatement(query);
             //Voy a definir los parametros del query (los "?")
@@ -34,15 +38,15 @@ public class UserDao {
             //Obtener la información del ResultSet
             if(rs.next()){
                 //Que el usuario si exite en la base de datos
-                u.setId(rs.getInt("id_usuario"));
+                u.setId_usuario(rs.getInt("id_usuario"));
                 u.setNombre(rs.getString("nombre"));
-                u.setApellido(rs.getString("apellidos"));
-                u.setCorreo(rs.getString("email"));
-                u.setPass(rs.getString("password"));
-                u.setEstadoPass(rs.getString("estado_password"));
-                u.setEstadoUsuario(rs.getInt("estado_usuario"));
-                u.setNombreUsuario(rs.getString("nombre_usuario"));
-                u.setFechaCreacion(rs.getString("fecha_creacion"));
+                u.setApellidos(rs.getString("apellidos"));
+                u.setEmail(rs.getString("email"));
+                u.setPassword(rs.getString("password"));
+                u.setEstado_password(rs.getString("estado_password"));
+                u.setEstado_usuario(rs.getInt("estado_usuario"));
+                u.setNombre_usuario(rs.getString("nombre_usuario"));
+                u.setFecha_creacion(rs.getString("fecha_creacion"));
             }
         } catch (SQLException e){
             e.printStackTrace();
@@ -58,20 +62,20 @@ public class UserDao {
             LocalDateTime fechaHora = LocalDateTime.now();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
             String fechaHoraFormatted = fechaHora.format(formatter);
-            Connection con = DatabaseConnectionManager.getConnection();
+            Connection con = getConnection();
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1,user.getNombre());
-            ps.setString(2,user.getApellido());
-            ps.setString(3,user.getCorreo());
+            ps.setString(2,user.getApellidos());
+            ps.setString(3,user.getEmail());
             ps.setString(4,user.getCurp());
-            ps.setString(5,user.getFechaNacimiento());
-            ps.setString(6,user.getPass());
+            ps.setString(5,user.getFecha_nacimiento());
+            ps.setString(6,user.getPassword());
             ps.setString(7,"Active");
             ps.setInt(8,1);
-            ps.setString(9,user.getNombreUsuario());
+            ps.setString(9,user.getNombre_usuario());
             ps.setString(10,fechaHoraFormatted);
-            ps.setInt(11,user.getTipoUsuario());
-            ps.setInt(12,user.getIdDIvision());
+            ps.setInt(11,user.getIdtipo_usuario());
+            ps.setInt(12,user.getId_division());
 
             //ps.setInt(11,user.getIdGrupo());
 
@@ -88,25 +92,25 @@ public class UserDao {
     public ArrayList<User> getAll() {
         ArrayList<User> usuario = new ArrayList<>();
         try(
-            Connection con = DatabaseConnectionManager.getConnection();
+            Connection con = getConnection();
             PreparedStatement ps = con.prepareStatement(SELECT_ALL_USERS);
             ResultSet rs = ps.executeQuery()){
             while (rs.next()) { // Iteramos cada fila resultado de la query
                 User u = new User();
-                u.setId(rs.getInt("id_usuario"));
+                u.setId_usuario(rs.getInt("id_usuario"));
                 u.setNombre(rs.getString("nombre"));
-                u.setApellido(rs.getString("apellidos"));
-                u.setCorreo(rs.getString("email"));
+                u.setApellidos(rs.getString("apellidos"));
+                u.setEmail(rs.getString("email"));
                 u.setCurp(rs.getString("curp"));
-                u.setFechaNacimiento(rs.getString("fecha_nacimiento"));
-                u.setPass(rs.getString("password"));
-                u.setEstadoPass(rs.getString("estado_password"));
-                u.setEstadoUsuario(rs.getInt("estado_usuario"));
-                u.setNombreUsuario(rs.getString("nombre_usuario"));
-                u.setFechaCreacion(rs.getString("fecha_creacion"));
-                u.setTipoUsuario(rs.getInt("idtipo_usuario"));
-                u.setIdDIvision(rs.getInt("id_division"));
-                u.setIdGrupo(rs.getInt("id_grupo"));
+                u.setFecha_nacimiento(rs.getString("fecha_nacimiento"));
+                u.setPassword(rs.getString("password"));
+                u.setEstado_password(rs.getString("estado_password"));
+                u.setEstado_usuario(rs.getInt("estado_usuario"));
+                u.setNombre_usuario(rs.getString("nombre_usuario"));
+                u.setFecha_creacion(rs.getString("fecha_creacion"));
+                u.setIdtipo_usuario(rs.getInt("idtipo_usuario"));
+                u.setId_division(rs.getInt("id_division"));
+                u.setId_grupo(rs.getInt("id_grupo"));
                 usuario.add(u);
             }
         } catch (SQLException e) {
@@ -116,61 +120,89 @@ public class UserDao {
     }
 
 
+    public User selectUser(int id_usuario) {
+        User user = null;
+        try (Connection connection = getConnection();
+             PreparedStatement ps = connection.prepareStatement(SELECT_USER_BY_ID)) {
+             ps.setInt(1, id_usuario);
+             ResultSet rs = ps.executeQuery();
 
-    public boolean update(int id, User user) {
-        boolean updated = false;
-        String sql = "UPDATE usuario SET nombre = ?, apellidos = ?, correo = ?, curp = ?, fecha_nacimiento = ?, pass = ?, nombre_usuario = ?, idtipo_usuario = ?, id_division = ? WHERE id = ?";
-        try (Connection conn = DatabaseConnectionManager.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setString(1, user.getNombre());
-            ps.setString(2, user.getApellido());
-            ps.setString(3, user.getCorreo());
-            ps.setString(4, user.getCurp());
-            ps.setString(5, user.getFechaNacimiento());
-            ps.setString(6, user.getPass());
-            ps.setString(7, user.getNombreUsuario());
-            ps.setInt(8, user.getTipoUsuario());
-            ps.setInt(9, user.getIdDIvision());
-            ps.setInt(10, user.getId());
-            updated = ps.executeUpdate() > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return updated;
-    }
-
-    public User findById(int id) {
-        User u = null;
-        String sql = "SELECT * FROM usuario WHERE id = ?";
-        try (Connection conn = DatabaseConnectionManager.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setInt(1, id);
-            ResultSet rs = pstmt.executeQuery();
-            if (rs.next()) {
-                u = new User();
-                u.setId(rs.getInt("id"));
-                u.setNombre(rs.getString("nombre"));
-                u.setApellido(rs.getString("apellidos"));
-                u.setCorreo(rs.getString("correo"));
-                u.setCurp(rs.getString("curp"));
-                u.setFechaNacimiento(rs.getString("fecha_nacimiento"));
-                u.setPass(rs.getString("pass"));
-                u.setNombreUsuario(rs.getString("nombre_usuario"));
-                u.setTipoUsuario(rs.getInt("idtipo_usuario"));
-                u.setIdDIvision(rs.getInt("id_division"));
-                // Rellenar otros campos si es necesario
+            while (rs.next()) {
+                String nombre = rs.getString("nombre");
+                String apellidos = rs.getString("apellidos");
+                String email = rs.getString("email");
+                String curp = rs.getString("curp");
+                String nombre_usuario = rs.getString("nombre_usuario");
+                int estado_usuario = rs.getInt("estado_usuario");
+                user = new User(id_usuario, nombre, apellidos, email, curp, estado_usuario, nombre_usuario);
             }
         } catch (SQLException e) {
+            printSQLException(e);
+        }
+        return user;
+    }
+
+    private void printSQLException(SQLException ex) {
+        for (Throwable e : ex) {
+            if (e instanceof SQLException) {
+                e.printStackTrace(System.err);
+                System.err.println("SQLState: " + ((SQLException) e).getSQLState());
+                System.err.println("Error Code: " + ((SQLException) e).getErrorCode());
+                System.err.println("Message: " + e.getMessage());
+                Throwable t = ex.getCause();
+                while (t != null) {
+                    System.out.println("Cause: " + t);
+                    t = t.getCause();
+                }
+            }
+        }
+    }
+
+    public User getOne(int id_usuario){
+        User u = new User();
+        String query = "select * from usuario where id_usuario = ?";
+        try{
+            Connection con = DatabaseConnectionManager.getConnection();
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1 , id_usuario);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                u.setId_usuario(rs.getInt("id_usuario"));
+                u.setNombre(rs.getString("nombre"));
+                u.setApellidos(rs.getString("apellidos"));
+                u.setEmail(rs.getString("email"));
+                u.setCurp(rs.getString("curp"));
+                u.setNombre_usuario(rs.getString("nombre_usuario"));
+                u.setEstado_usuario(rs.getInt("estado_usuario"));
+            }
+        } catch (SQLException e){
             e.printStackTrace();
         }
         return u;
+    }
+
+    public boolean update(User user) throws SQLException {
+        boolean flag;
+        String query = "update usuario set nombre = ?, apellidos = ?, email = ?, curp = ?, nombre_usuario = ?, estado_usuario = ? where id_usuario = ?";
+        try (Connection con = DatabaseConnectionManager.getConnection();
+            PreparedStatement ps = con.prepareStatement(query)) {
+            ps.setString(1, user.getNombre());
+            ps.setString(2, user.getApellidos());
+            ps.setString(3, user.getEmail());
+            ps.setString(4, user.getCurp());
+            ps.setString(5, user.getNombre_usuario());
+            ps.setInt(6, user.getEstado_usuario());
+            ps.setInt(7, user.getId_usuario());
+            flag = ps.executeUpdate() > 0;
+        }
+            return flag;
     }
 
     public boolean delete(int id) throws SQLException{
         boolean flag;
         String sql = "update usuario set estado_usuario = 0 where id_usuario = ? ";
 
-        try (Connection con = DatabaseConnectionManager.getConnection();
+        try (Connection con = getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setInt(1,id);
             flag = ps.executeUpdate()>0;

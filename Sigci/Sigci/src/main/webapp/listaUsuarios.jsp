@@ -26,13 +26,13 @@
         if (lista_user != null){
         for(User u : lista_user){ %>
     <tr>
-        <td><%=u.getNombre()%> <%=u.getApellido()%></td>
-        <td><%=u.getCorreo()%></td>
-        <td><%=u.getFechaCreacion()%></td>
-        <td><%=u.getIdDIvision()%></td>
-        <td><%=u.getEstadoUsuario()%></td>
-        <td><a href="editarUsuario.jsp">Actualizar</a></td> <!-- Funcionalidad de actualizar -->
-        <td><a href="borrarUsuario?id=<%=u.getId()%>">Borrar</a></td> <!-- Funcionalidad de borrar -->
+        <td><%=u.getNombre()%> <%=u.getApellidos()%></td>
+        <td><%=u.getEmail()%></td>
+        <td><%=u.getFecha_creacion()%></td>
+        <td><%=u.getId_division()%></td>
+        <td><%=u.getEstado_usuario()%></td>
+        <td><a href="updateUser?id_usuario=<%=u.getId_usuario()%>">Actualizar</a></td> <!-- Funcionalidad de actualizar -->
+        <td><a href="borrarUsuario?id_usuario=<%=u.getId_usuario()%>">Borrar</a></td> <!-- Funcionalidad de borrar -->
     </tr>
     <% }} %>
     </tbody>

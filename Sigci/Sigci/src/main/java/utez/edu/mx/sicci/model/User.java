@@ -2,175 +2,176 @@ package utez.edu.mx.sicci.model;
 
 public class User {
 
-    private int id;
-    private String nombreUsuario;
+    private int id_usuario;
     private String nombre;
-    private String apellido;
-    private String correo;
+    private String apellidos;
+    private String email;
     private String curp;
-    private String fechaNacimiento;
-    private String pass;
-    private String fechaCreacion;
-    private String estadoPass;
-    private int estadoUsuario;
-    private int tipoUsuario;
-    private int idDIvision;
-    private int idGrupo;
+    private String fecha_nacimiento;
+    private String password;
+    private String estado_password;
+    private int estado_usuario;
+    private String nombre_usuario;
+    private String fecha_creacion;
+    private int idtipo_usuario;
+    private int id_division;
+    private int id_grupo;
 
 
-
-    public User(){
+    public User() {
 
     }
 
-    public User(String nombreUsuario, String nombre, String apellido, String correo, String curp,
-                String fechaNacimiento,String pass, String fechaCreacion, String estadoPass,int estadoUsuario,int tipoUsuario) {
-        this.nombreUsuario = nombreUsuario;
+    public User(int id_usuario, String nombre, String apellidos, String email, String curp, int estado_usuario, String nombre_usuario) {
+        this.id_usuario = id_usuario;
         this.nombre = nombre;
-        this.apellido = apellido;
-        this.correo = correo;
+        this.apellidos = apellidos;
+        this.email = email;
         this.curp = curp;
-        this.fechaNacimiento = fechaNacimiento;
-        this.pass = pass;
-        this.fechaCreacion = fechaCreacion;
-        this.estadoPass = estadoPass;
-        this.estadoUsuario = estadoUsuario;
-        this.tipoUsuario = tipoUsuario;
+        this.estado_usuario = estado_usuario;
+        this.nombre_usuario = nombre_usuario;
     }
 
-    public User(int id, String nombreUsuario, String nombre, String apellido, String correo, String curp,
-                String fechaNacimiento, String pass, String fechaCreacion, String estadoPass, int estadoUsuario,
-                int tipoUsuario, int idDIvision, int idGrupo) {
-        this.id = id;
-        this.nombreUsuario = nombreUsuario;
+    public User(String nombre, String apellidos, String email, String curp, String fecha_nacimiento, String password, String estado_password, int estado_usuario, String nombre_usuario, String fecha_creacion, int idtipo_usuario) {
         this.nombre = nombre;
-        this.apellido = apellido;
-        this.correo = correo;
+        this.apellidos = apellidos;
+        this.email = email;
         this.curp = curp;
-        this.fechaNacimiento = fechaNacimiento;
-        this.pass = pass;
-        this.fechaCreacion = fechaCreacion;
-        this.estadoPass = estadoPass;
-        this.estadoUsuario = estadoUsuario;
-        this.tipoUsuario = tipoUsuario;
-        this.idDIvision = idDIvision;
-        this.idGrupo = idGrupo;
+        this.fecha_nacimiento = fecha_nacimiento;
+        this.password = password;
+        this.estado_password = estado_password;
+        this.estado_usuario = estado_usuario;
+        this.nombre_usuario = nombre_usuario;
+        this.fecha_creacion = fecha_creacion;
+        this.idtipo_usuario = idtipo_usuario;
     }
 
-    // getters
-
-    public int getId() {
-        return id;
+    public User(int id_usuario, String nombre, String apellidos, String email, String curp, String fecha_nacimiento, String password, String estado_password, int estado_usuario, String nombre_usuario, String fecha_creacion, int idtipo_usuario, int id_division, int id_grupo) {
+        this.id_usuario = id_usuario;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.email = email;
+        this.curp = curp;
+        this.fecha_nacimiento = fecha_nacimiento;
+        this.password = password;
+        this.estado_password = estado_password;
+        this.estado_usuario = estado_usuario;
+        this.nombre_usuario = nombre_usuario;
+        this.fecha_creacion = fecha_creacion;
+        this.idtipo_usuario = idtipo_usuario;
+        this.id_division = id_division;
+        this.id_grupo = id_grupo;
     }
 
-    public String getNombreUsuario() {
-        return nombreUsuario;
+    public int getId_usuario() {
+        return id_usuario;
+    }
+
+    public void setId_usuario(int id_usuario) {
+        this.id_usuario = id_usuario;
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getCorreo() {
-        return correo;
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getCurp() {
         return curp;
     }
 
-    public String getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-
-    public String getPass() {
-        return pass;
-    }
-
-    public String getFechaCreacion() {
-        return fechaCreacion;
-    }
-
-    public String getEstadoPass() {
-        return estadoPass;
-    }
-
-    public int getEstadoUsuario() {
-        return estadoUsuario;
-    }
-
-    public int getTipoUsuario() {
-        return tipoUsuario;
-    }
-
-    public int getIdDIvision() {
-        return idDIvision;
-    }
-
-    public int getIdGrupo() {
-        return idGrupo;
-    }
-
-
-    //setter
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setNombreUsuario(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
     public void setCurp(String curp) {
         this.curp = curp;
     }
 
-    public void setFechaNacimiento(String fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
+    public String getFecha_nacimiento() {
+        return fecha_nacimiento;
     }
 
-    public void setPass(String pass) {
-        this.pass = pass;
+    public void setFecha_nacimiento(String fecha_nacimiento) {
+        this.fecha_nacimiento = fecha_nacimiento;
     }
 
-    public void setFechaCreacion(String fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
+    public String getPassword() {
+        return password;
     }
 
-    public void setEstadoPass(String estadoPass) {
-        this.estadoPass = estadoPass;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public void setEstadoUsuario(int estadoUsuario) {
-        this.estadoUsuario = estadoUsuario;
+    public String getEstado_password() {
+        return estado_password;
     }
 
-    public void setTipoUsuario(int tipoUsuario) {
-        this.tipoUsuario = tipoUsuario;
+    public void setEstado_password(String estado_password) {
+        this.estado_password = estado_password;
     }
 
-    public void setIdDIvision(int idDIvision) {
-        this.idDIvision = idDIvision;
+    public int getEstado_usuario() {
+        return estado_usuario;
     }
 
-    public void setIdGrupo(int idGrupo) {
-        this.idGrupo = idGrupo;
+    public void setEstado_usuario(int estado_usuario) {
+        this.estado_usuario = estado_usuario;
+    }
+
+    public String getNombre_usuario() {
+        return nombre_usuario;
+    }
+
+    public void setNombre_usuario(String nombre_usuario) {
+        this.nombre_usuario = nombre_usuario;
+    }
+
+    public String getFecha_creacion() {
+        return fecha_creacion;
+    }
+
+    public void setFecha_creacion(String fecha_creacion) {
+        this.fecha_creacion = fecha_creacion;
+    }
+
+    public int getIdtipo_usuario() {
+        return idtipo_usuario;
+    }
+
+    public void setIdtipo_usuario(int idtipo_usuario) {
+        this.idtipo_usuario = idtipo_usuario;
+    }
+
+    public int getId_division() {
+        return id_division;
+    }
+
+    public void setId_division(int id_division) {
+        this.id_division = id_division;
+    }
+
+    public int getId_grupo() {
+        return id_grupo;
+    }
+
+    public void setId_grupo(int id_grupo) {
+        this.id_grupo = id_grupo;
     }
 }

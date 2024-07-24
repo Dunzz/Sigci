@@ -16,20 +16,20 @@ public class RegistrarUsuarioServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User u = new User();
         u.setNombre(req.getParameter("nombre"));
-        u.setApellido(req.getParameter("apellidos"));
-        u.setCorreo(req.getParameter("correo"));
+        u.setApellidos(req.getParameter("apellidos"));
+        u.setEmail(req.getParameter("correo"));
         u.setCurp(req.getParameter("curp"));
-        u.setFechaNacimiento(req.getParameter("fechaNacimiento"));
-        u.setPass(req.getParameter("pass"));
-        u.setNombreUsuario(req.getParameter("nombreUsuario"));
-        u.setTipoUsuario(Integer.parseInt(req.getParameter("idtipo_usuario")));
-        u.setIdDIvision(Integer.parseInt(req.getParameter("id_division")));
+        u.setFecha_nacimiento(req.getParameter("fecha_nacimiento"));
+        u.setPassword(req.getParameter("password"));
+        u.setNombre_usuario(req.getParameter("nombre_usuario"));
+        u.setIdtipo_usuario(Integer.parseInt(req.getParameter("idtipo_usuario")));
+        u.setId_division(Integer.parseInt(req.getParameter("id_division")));
 
         //Se debe mandar a llamar un DAO que permita insertar
         UserDao dao = new UserDao();
         if (dao.insert(u)){
             //respuesta hacia un jsp
-            resp.sendRedirect("login.jsp");
+            resp.sendRedirect("getListaDocentes");
 
         }else {
             //la info no se insertó y regresa al formulario

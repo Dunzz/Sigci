@@ -18,13 +18,13 @@ public class UserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String email = request.getParameter("correo");
-        String pass = request.getParameter("pass");
+        String pass =request.getParameter("pass");
         UserDao dao = new UserDao();
         User u = dao.getOne(email, pass);
 
         String ruta = "login.jsp";
 
-        if(u.getCorreo() != null) {
+        if(u.getEmail() != null) {
             // Que el usuario SI existe en la base de datos
             ruta = "menuAdminppal.jsp";//puse el menu admin aqui pero debe de midentificar si es docente o admind
         } else {

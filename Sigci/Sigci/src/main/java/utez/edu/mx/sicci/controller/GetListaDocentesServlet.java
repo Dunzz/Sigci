@@ -11,6 +11,7 @@ import utez.edu.mx.sicci.model.User;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet(name="GetListaDocentesServlet", value = "/getListaDocentes")
 public class GetListaDocentesServlet extends HttpServlet {
@@ -26,7 +27,7 @@ public class GetListaDocentesServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        ArrayList<User> lista_user = dao.getAll();
+        List<User> lista_user = dao.getAll();
         req.setAttribute("lista_user", lista_user);
         RequestDispatcher rd = req.getRequestDispatcher("listaUsuarios.jsp");
         rd.forward(req,resp);
