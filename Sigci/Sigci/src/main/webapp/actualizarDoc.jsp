@@ -84,6 +84,7 @@
                             </div>
                         </div>
                         <input type="submit" class="activar" value="Activar">
+                        <a href="getListaDocentes">Docentes</a>
                     </div>
                 </div>
             </div>

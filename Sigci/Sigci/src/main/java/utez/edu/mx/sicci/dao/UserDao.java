@@ -12,7 +12,7 @@ import java.util.*;
 
 
 public class UserDao {
-    private static final String SELECT_ALL_USERS = "SELECT * FROM usuario";
+    private static final String SELECT_ALL_USERS = "SELECT * FROM usuario where idtipo_usuario = 2";
 
 
     // Encontrar el usuario a partir del correo
@@ -43,9 +43,6 @@ public class UserDao {
                 u.setEstadoUsuario(rs.getInt("estado_usuario"));
                 u.setNombreUsuario(rs.getString("nombre_usuario"));
                 u.setFechaCreacion(rs.getString("fecha_creacion"));
-
-
-
             }
         } catch (SQLException e){
             e.printStackTrace();
@@ -169,7 +166,15 @@ public class UserDao {
         return u;
     }
 
+    public boolean delete(int id) throws SQLException{
+        boolean flag;
+        String sql = "update usuario set estado_usuario = 0 where id_usuario = ? ";
 
-
-
+        try (Connection con = DatabaseConnectionManager.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1,id);
+            flag = ps.executeUpdate()>0;
+        }
+        return flag;
+    }
 }
