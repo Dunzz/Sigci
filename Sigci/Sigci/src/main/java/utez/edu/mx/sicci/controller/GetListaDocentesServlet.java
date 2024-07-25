@@ -19,7 +19,7 @@ public class GetListaDocentesServlet extends HttpServlet {
     private UserDao dao;
 
     @Override
-    public void init() throws ServletException {
+    public void init() {
         dao = new UserDao();
     }
 

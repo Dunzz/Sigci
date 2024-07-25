@@ -63,6 +63,19 @@ public class User {
         this.id_grupo = id_grupo;
     }
 
+    public User(String nombre, String apellidos, String email, String curp, String fecha_nacimiento, String password, String nombre_usuario, int idtipo_usuario, int id_division, int id_grupo) {
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.email = email;
+        this.curp = curp;
+        this.fecha_nacimiento = fecha_nacimiento;
+        this.password = password;
+        this.nombre_usuario = nombre_usuario;
+        this.idtipo_usuario = idtipo_usuario;
+        this.id_division = id_division;
+        this.id_grupo = id_grupo;
+    }
+
     public int getId_usuario() {
         return id_usuario;
     }

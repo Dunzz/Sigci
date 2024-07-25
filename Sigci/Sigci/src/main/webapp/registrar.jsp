@@ -52,30 +52,35 @@
     <div class="login-box">
         <center><h2>Registrar Docentes</h2></center>
         <br>
-        <form id="FormLogin" action="registrarUsuario" name="registroUsuario" method="post">
+        <form action="registrarUsuario" id="FormLogin" name="registroUsuario" method="post">
             <div class="user-box">
-                <input type="text" id="name" name="nombre" required>
-                <label> Nombres</label>
+                <input type="text" id="nombre" name="nombre" required>
+                <label for="nombre">Nombres</label>
             </div>
             <div class="user-box">
-                <input type="text" id="lastName" name="apellidos" required>
-                <label> Apellidos</label>
+                <input type="text" id="apellidos" name="apellidos" required>
+                <label for="apellidos">Apellidos</label>
             </div>
             <div class="user-box">
-                <input type="date" id="date" name="fechaNacimiento" required>
-                <label> Fecha nacimiento</label>
+                <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
+                <label for="fecha_nacimiento">Fecha de nacimiento</label>
             </div>
             <div class="user-box">
                 <input type="text" id="curp" name="curp" required>
-                <label>Curp</label>
+                <label for="curp">CURP</label>
             </div>
             <div class="user-box">
-                <input type="email" id="email" name="correo" required>
-                <label>Correo institucional</label>
+                <input type="email" id="email" name="email" required>
+                <label for="email">Correo institucional</label>
+            </div>
+            <div class="user-box">
+                <input type="text" id="nombre_usuario" name="nombre_usuario" required>
+                <label for="nombre_usuario">Usuario</label>
             </div>
             <div class="form-group">
+                <label for="idtipo_usuario">Tipo de Usuario</label>
                 <select class="form-control" id="idtipo_usuario" name="idtipo_usuario" required>
-                    <option value="">Tipo Usuario</option>
+                    <option value="">Seleccione un tipo de usuario</option>
                     <option value="1">Administrador</option>
                     <option value="2">Docente</option>
                     <option value="3">Invitado</option>
@@ -83,30 +88,31 @@
             </div>
             <br>
             <div class="form-group">
+                <label for="id_division">División</label>
                 <select class="form-control" id="id_division" name="id_division" required>
-                    <option value="">División</option>
+                    <option value="">Seleccione una división</option>
                     <option value="1">Div1</option>
                     <option value="2">Div2</option>
                     <option value="3">Div3</option>
                 </select>
             </div>
             <br>
-
             <div class="form-group">
+                <label for="id_grupo">Grupo</label>
                 <select class="form-control" id="id_grupo" name="id_grupo" required>
-                    <option value="">Grupo</option>
+                    <option value="">Seleccione un grupo</option>
                     <option value="1">Grupo1</option>
                     <option value="2">Grupo2</option>
                     <option value="3">Grupo3</option>
                 </select>
             </div>
-            <input type="hidden" value="porDefinir" name="estadoPass" />
-            <input type="hidden" value="provisional" name="pass" />
-            <input type="hidden" value="1" name="estadoUsuario"/>
-            <center><input type="submit" class="registrar" value="registrar"></center>
+            <input type="hidden" value="porDefinir" name="estado_password" />
+            <input type="hidden" value="provisional" name="password" />
+            <input type="hidden" value="1" name="estado_usuario" />
+            <center><input type="submit" class="registrar" value="Registrar"></center>
         </form>
-        <a href="getListaDocentes">Volver a la lista</a>
     </div>
+
     <div class="logo">
         <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
              width="80.000000pt" height="88.000000pt" viewBox="0 0 173.000000 181.000000"

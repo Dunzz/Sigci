@@ -9,33 +9,46 @@ import utez.edu.mx.sicci.dao.UserDao;
 import utez.edu.mx.sicci.model.User;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.sql.SQLException;
 
 @WebServlet(name="RegistrarUsuarioServlet", value = "/registrarUsuario")
 public class RegistrarUsuarioServlet extends HttpServlet {
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        User u = new User();
-        u.setNombre(req.getParameter("nombre"));
-        u.setApellidos(req.getParameter("apellidos"));
-        u.setEmail(req.getParameter("correo"));
-        u.setCurp(req.getParameter("curp"));
-        u.setFecha_nacimiento(req.getParameter("fecha_nacimiento"));
-        u.setPassword(req.getParameter("password"));
-        u.setNombre_usuario(req.getParameter("nombre_usuario"));
-        u.setIdtipo_usuario(Integer.parseInt(req.getParameter("idtipo_usuario")));
-        u.setId_division(Integer.parseInt(req.getParameter("id_division")));
+        try {
+            User user = new User();
+            user.setNombre(req.getParameter("nombre"));
+            user.setApellidos(req.getParameter("apellidos"));
+            user.setEmail(req.getParameter("email"));
+            user.setCurp(req.getParameter("curp"));
+            user.setFecha_nacimiento(req.getParameter("fecha_nacimiento"));
+            user.setPassword(req.getParameter("password"));
+            user.setNombre_usuario(req.getParameter("nombre_usuario"));
+            user.setIdtipo_usuario(Integer.parseInt(req.getParameter("idtipo_usuario")));
+            user.setId_division(Integer.parseInt(req.getParameter("id_division")));
+            user.setId_grupo(Integer.parseInt(req.getParameter("id_grupo")));
 
-        //Se debe mandar a llamar un DAO que permita insertar
-        UserDao dao = new UserDao();
-        if (dao.insert(u)){
-            //respuesta hacia un jsp
-            resp.sendRedirect("getListaDocentes");
-
-        }else {
-            //la info no se insertó y regresa al formulario
-            HttpSession session = req.getSession();
-            session.setAttribute("mensajeError","Puede que el usuario ya esté registrado");
-            resp.sendRedirect("registrar.jsp");
+            //Se debe mandar a llamar un DAO que permita insertar
+            UserDao dao = new UserDao();
+            if (dao.insert(user)) {
+                //respuesta hacia un jsp
+                resp.sendRedirect("getListaDocentes");
+            } else {
+                //la info no se insertó y regresa al formulario
+                HttpSession session = req.getSession();
+                session.setAttribute("mensajeError", "Puede que el usuario ya esté registrado");
+                resp.sendRedirect("registrar.jsp");
+            }
+        } catch (NumberFormatException e) {
+            req.setAttribute("mensajeError", "ID de tipo de usuario, división o grupo no válidos.");
+            req.getRequestDispatcher("registrar.jsp").forward(req, resp);
+        } catch (Exception e) {
+            req.setAttribute("mensajeError", "Error inesperado: " + e.getMessage());
+            req.getRequestDispatcher("registrar.jsp").forward(req, resp);
         }
     }
 }
+
+

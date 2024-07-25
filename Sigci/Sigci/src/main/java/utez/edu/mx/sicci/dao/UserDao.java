@@ -16,7 +16,7 @@ import static utez.edu.mx.sicci.utils.DatabaseConnectionManager.getConnection;
 public class UserDao {
     private static final String SELECT_ALL_USERS = "SELECT * FROM usuario where idtipo_usuario = 2";
 
-    private static final String     SELECT_USER_BY_ID = "SELECT id_usuario, nombre, apellidos, email, curp, nombre_usuario, estado_usuario FROM usuario WHERE id_usuario = ?";
+    private static final String SELECT_USER_BY_ID = "SELECT id_usuario, nombre, apellidos, email, curp, nombre_usuario, estado_usuario FROM usuario WHERE id_usuario = ?";
 
 
     // Encontrar el usuario a partir del correo
@@ -55,40 +55,41 @@ public class UserDao {
     }
 
 
-    public boolean insert(User user){
+    public boolean insert(User user) {
         boolean flag = false;
-        String query = "INSERT INTO usuario(nombre,apellidos,email,curp, fecha_nacimiento, password, estado_password,estado_usuario,nombre_usuario,fecha_creacion, idtipo_usuario,id_division) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?);";
-        try {
+        String query = "INSERT INTO usuario(nombre, apellidos, email, curp, fecha_nacimiento, password, estado_password, estado_usuario, nombre_usuario, fecha_creacion, idtipo_usuario, id_division, id_grupo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+
+        try (Connection con = getConnection();
+             PreparedStatement ps = con.prepareStatement(query)) {
+
             LocalDateTime fechaHora = LocalDateTime.now();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
             String fechaHoraFormatted = fechaHora.format(formatter);
-            Connection con = getConnection();
-            PreparedStatement ps = con.prepareStatement(query);
-            ps.setString(1,user.getNombre());
-            ps.setString(2,user.getApellidos());
-            ps.setString(3,user.getEmail());
-            ps.setString(4,user.getCurp());
-            ps.setString(5,user.getFecha_nacimiento());
-            ps.setString(6,user.getPassword());
-            ps.setString(7,"Active");
-            ps.setInt(8,1);
-            ps.setString(9,user.getNombre_usuario());
-            ps.setString(10,fechaHoraFormatted);
-            ps.setInt(11,user.getIdtipo_usuario());
-            ps.setInt(12,user.getId_division());
 
-            //ps.setInt(11,user.getIdGrupo());
+            ps.setString(1, user.getNombre());
+            ps.setString(2, user.getApellidos());
+            ps.setString(3, user.getEmail());
+            ps.setString(4, user.getCurp());
+            ps.setString(5, user.getFecha_nacimiento());
+            ps.setString(6, user.getPassword());
+            ps.setString(7, "Active"); // Usa constantes para estos valores
+            ps.setInt(8, 1);
+            ps.setString(9, user.getNombre_usuario());
+            ps.setString(10, fechaHoraFormatted);
+            ps.setInt(11, user.getIdtipo_usuario());
+            ps.setInt(12, user.getId_division());
+            ps.setInt(13, user.getId_grupo());
 
-
-
-            if(ps.executeUpdate()==1){
-                flag = true; //si se inserto el dato
+            if (ps.executeUpdate() == 1) {
+                flag = true; // Si se insertó el dato
             }
-        }catch(SQLException e){
-            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace(); // Considera registrar la excepción en lugar de imprimirla
         }
+
         return flag;
     }
+
     public ArrayList<User> getAll() {
         ArrayList<User> usuario = new ArrayList<>();
         try(
@@ -198,13 +199,13 @@ public class UserDao {
             return flag;
     }
 
-    public boolean delete(int id) throws SQLException{
+    public boolean delete(int id_usuario) throws SQLException{
         boolean flag;
         String sql = "update usuario set estado_usuario = 0 where id_usuario = ? ";
 
         try (Connection con = getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
-            ps.setInt(1,id);
+            ps.setInt(1,id_usuario);
             flag = ps.executeUpdate()>0;
         }
         return flag;

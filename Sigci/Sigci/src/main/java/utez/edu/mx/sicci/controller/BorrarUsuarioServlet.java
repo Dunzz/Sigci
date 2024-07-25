@@ -24,7 +24,7 @@ public class BorrarUsuarioServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try{
-            int id_usuario = Integer.parseInt(req.getParameter("id"));
+            int id_usuario = Integer.parseInt(req.getParameter("id_usuario"));
             userDao.delete(id_usuario);
             resp.sendRedirect("listaUsuarios.jsp");
         }catch(SQLException e){
