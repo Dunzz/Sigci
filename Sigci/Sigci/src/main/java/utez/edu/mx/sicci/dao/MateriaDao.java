@@ -17,6 +17,9 @@ public class MateriaDao {
 
     private static final String SELECT_ALL_MATERIA = "SELECT * FROM materia";
 
+    private static final String SELECT_MATERIA_BY_ID = "select id_materia, nombre_materia from materia where id_materia = ?";
+
+
     public List<Materia> getAllMateria() {
         List<Materia> materia = new ArrayList<>();
         try (
@@ -79,6 +82,35 @@ public class MateriaDao {
              PreparedStatement ps = con.prepareStatement(query)){
             ps.setInt(1, id_materia);
             flag = ps.executeUpdate()>0;
+        }
+        return flag;
+    }
+
+    public Materia selectMateria(int id_materia) {
+        Materia materia = null;
+        try (Connection connection = getConnection();
+             PreparedStatement ps = connection.prepareStatement(SELECT_MATERIA_BY_ID)) {
+            ps.setInt(1, id_materia);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                String nombre_materia = rs.getString("nombre_materia");
+                materia = new Materia(id_materia, nombre_materia);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return materia;
+    }
+
+    public boolean updateMateria(Materia materia) throws SQLException {
+        boolean flag;
+        String query = "UPDATE materia SET nombre_materia = ? WHERE id_materia = ?";
+        try (Connection con = DatabaseConnectionManager.getConnection();
+             PreparedStatement ps = con.prepareStatement(query)) {
+            ps.setString(1, materia.getNombre_materia());
+            ps.setInt(2, materia.getId_materia());
+            flag = ps.executeUpdate() > 0;
         }
         return flag;
     }

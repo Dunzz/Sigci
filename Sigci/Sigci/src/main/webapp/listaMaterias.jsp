@@ -29,7 +29,7 @@
             for(Materia m : lista_materia){ %>
     <tr>
         <td><%=m.getNombre_materia()%> </td>
-        <td><a href="getListaMaterias?id_materia=<%=m.getId_materia()%>">Actualizar</a></td> <!-- Funcionalidad de actualizar -->
+        <td><a href="updateMateria?id_materia=<%=m.getId_materia()%>">Actualizar</a></td> <!-- Funcionalidad de actualizar -->
         <td><a href="borrarMateria?id_materia=<%=m.getId_materia()%>">Borrar</a></td> <!-- Funcionalidad de borrar -->
     </tr>
     <% }} %>

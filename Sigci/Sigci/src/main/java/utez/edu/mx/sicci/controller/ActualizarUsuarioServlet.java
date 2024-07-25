@@ -40,6 +40,4 @@ public class ActualizarUsuarioServlet extends HttpServlet {
             throw new ServletException(e);
         }
     }
-
-        // hola
 }

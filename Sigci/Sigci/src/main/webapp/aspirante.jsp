@@ -1,16 +1,37 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Angel
-  Date: 04/07/2024
-  Time: 07:57 p. m.
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="utez.edu.mx.sicci.dao.UserDao" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="utez.edu.mx.sicci.model.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Usuarios</title>
 </head>
 <body>
-<h1>Aqui va la tabla </h1>
+<table>
+    <thead>
+    <tr>
+        <th>Nombre Completo</th>
+        <th>Correo</th>
+        <th>Fecha de Creación</th>
+        <th>ID de División</th>
+        <th>Estado Usuario</th>
+    </tr>
+    </thead>
+    <tbody>
+    <%
+        // Obtenemos la lista de usuarios
+        ArrayList<User> lista_aspirantes = (ArrayList <User>) request.getAttribute("lista_aspirantes");
+        if (lista_aspirantes != null){
+            for(User u : lista_aspirantes){ %>
+    <tr>
+        <td><%=u.getNombre()%> <%=u.getApellidos()%></td>
+        <td><%=u.getEmail()%></td>
+        <td><%=u.getFecha_creacion()%></td>
+        <td><%=u.getId_division()%></td>
+        <td><%=u.getEstado_usuario()%></td>
+    </tr>
+    <% }} %>
+    </tbody>
+</table>
 </body>
 </html>

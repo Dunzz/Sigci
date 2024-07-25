@@ -19,7 +19,7 @@
   <p>"¡Bienvenido al punto de partida de tu próxima gran aventura digital! Aquí podrás gestionar tus cursos de inducción y dar el primer paso hacia un futuro lleno de oportunidades ilimitadas. ¡Explora, aprende y conquista nuevos horizontes!"</p>
   <div>
     <a href="<%= request.getContextPath() %>/login.jsp" class="btn btn-primary btn-custom">Iniciar Sesión</a>
-    <a href="<%= request.getContextPath() %>/aspirante.jsp" class="btn btn-outline-primary btn-custom">Soy Aspirante</a>
+    <a href="getListaAspirantes" class="btn btn-outline-primary btn-custom">Soy Aspirante</a>
   </div>
 </div>
 

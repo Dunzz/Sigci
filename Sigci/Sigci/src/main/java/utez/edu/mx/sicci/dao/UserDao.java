@@ -15,6 +15,7 @@ import static utez.edu.mx.sicci.utils.DatabaseConnectionManager.getConnection;
 
 public class UserDao {
     private static final String SELECT_ALL_USERS = "SELECT * FROM usuario where idtipo_usuario = 2";
+    private static final String SELECT_ALL_ASPIRANTES = "SELECT * FROM usuario where idtipo_usuario = 1";
 
     private static final String SELECT_USER_BY_ID = "SELECT id_usuario, nombre, apellidos, email, curp, nombre_usuario, estado_usuario FROM usuario WHERE id_usuario = ?";
 
@@ -209,5 +210,35 @@ public class UserDao {
             flag = ps.executeUpdate()>0;
         }
         return flag;
+    }
+
+    public ArrayList<User> getAllAspirantes() {
+        ArrayList<User> usuario = new ArrayList<>();
+        try(
+                Connection con = getConnection();
+                PreparedStatement ps = con.prepareStatement(SELECT_ALL_ASPIRANTES);
+                ResultSet rs = ps.executeQuery()){
+            while (rs.next()) { // Iteramos cada fila resultado de la query
+                User u = new User();
+                u.setId_usuario(rs.getInt("id_usuario"));
+                u.setNombre(rs.getString("nombre"));
+                u.setApellidos(rs.getString("apellidos"));
+                u.setEmail(rs.getString("email"));
+                u.setCurp(rs.getString("curp"));
+                u.setFecha_nacimiento(rs.getString("fecha_nacimiento"));
+                u.setPassword(rs.getString("password"));
+                u.setEstado_password(rs.getString("estado_password"));
+                u.setEstado_usuario(rs.getInt("estado_usuario"));
+                u.setNombre_usuario(rs.getString("nombre_usuario"));
+                u.setFecha_creacion(rs.getString("fecha_creacion"));
+                u.setIdtipo_usuario(rs.getInt("idtipo_usuario"));
+                u.setId_division(rs.getInt("id_division"));
+                u.setId_grupo(rs.getInt("id_grupo"));
+                usuario.add(u);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return usuario;
     }
 }
