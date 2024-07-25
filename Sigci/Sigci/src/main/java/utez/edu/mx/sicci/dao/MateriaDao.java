@@ -1,6 +1,7 @@
 package utez.edu.mx.sicci.dao;
 
 import utez.edu.mx.sicci.model.Materia;
+import utez.edu.mx.sicci.model.User;
 import utez.edu.mx.sicci.utils.DatabaseConnectionManager;
 
 import java.sql.Connection;
@@ -9,6 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import static utez.edu.mx.sicci.utils.DatabaseConnectionManager.getConnection;
 
 public class MateriaDao {
 
@@ -50,4 +53,34 @@ public class MateriaDao {
         }
         return flag;
     }
+
+    public ArrayList<Materia> getAll() {
+        ArrayList<Materia> materia = new ArrayList<>();
+        try(
+                Connection con = getConnection();
+                PreparedStatement ps = con.prepareStatement(SELECT_ALL_MATERIA);
+                ResultSet rs = ps.executeQuery()){
+            while (rs.next()) { // Iteramos cada fila resultado de la query
+                Materia m = new Materia();
+                m.setId_materia(rs.getInt("id_materia"));
+                m.setNombre_materia(rs.getString("nombre_materia"));
+                materia.add(m);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return materia;
+    }
+
+    public boolean delete(int id_materia) throws SQLException{
+        boolean flag;
+        String query = "DELETE FROM materia WHERE id_materia = ?";
+        try (Connection con = getConnection();
+             PreparedStatement ps = con.prepareStatement(query)){
+            ps.setInt(1, id_materia);
+            flag = ps.executeUpdate()>0;
+        }
+        return flag;
+    }
+
 }

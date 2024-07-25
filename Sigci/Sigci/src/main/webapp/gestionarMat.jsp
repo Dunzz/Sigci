@@ -120,7 +120,7 @@ c-7 213 10 199 -242 199 -187 0 -189 0 -213 -25 l-25 -24 0 -509 c0 -487 1
 -821 -2 -851 -17z"/>
                         </g>
                     </svg>
-                        <br><a href=""><center>Actualizar materias</center></a></h5>
+                        <br><a href="getListaMaterias"><center>Actualizar materias</center></a></h5>
                 </div>
             </div>
         </div>
