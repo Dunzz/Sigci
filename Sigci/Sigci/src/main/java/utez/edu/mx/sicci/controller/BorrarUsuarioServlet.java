@@ -26,7 +26,7 @@ public class BorrarUsuarioServlet extends HttpServlet {
         try{
             int id_usuario = Integer.parseInt(req.getParameter("id_usuario"));
             userDao.delete(id_usuario);
-            resp.sendRedirect("listaUsuarios.jsp");
+            resp.sendRedirect("getListaDocentes");
         }catch(SQLException e){
             e.printStackTrace();
         }

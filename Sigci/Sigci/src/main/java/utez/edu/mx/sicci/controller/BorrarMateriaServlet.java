@@ -28,7 +28,7 @@ public class BorrarMateriaServlet extends HttpServlet {
         try{
             int id_materia = Integer.parseInt(req.getParameter("id_materia"));
             materiaDao.delete(id_materia);
-            resp.sendRedirect("listaMaterias.jsp");
+            resp.sendRedirect("getListaMaterias");
         }catch(SQLException e){
             e.printStackTrace();
         }
