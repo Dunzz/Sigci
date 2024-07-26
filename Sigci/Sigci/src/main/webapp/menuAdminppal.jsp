@@ -188,7 +188,7 @@
                      0 -10 -30 -10 -70z"/>
                             </g>
                         </svg>
-                        <center><a href="getListaAspirantes">Gestionar aspirantes</a></center>
+                        <center><a href="getListaAdminAspirantes">Gestionar aspirantes</a></center>
                     </h5>
                     <p class="card-text">
                     <center>Permite administrar los solicitantes en el sistema.</center>
