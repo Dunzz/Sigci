@@ -15,7 +15,7 @@ import static utez.edu.mx.sicci.utils.DatabaseConnectionManager.getConnection;
 
 public class UserDao {
     private static final String SELECT_ALL_USERS = "SELECT * FROM usuario where idtipo_usuario = 2";
-    private static final String SELECT_ALL_ASPIRANTES = "SELECT * FROM usuario where idtipo_usuario = 1";
+    private static final String SELECT_ALL_ASPIRANTES = "SELECT * FROM usuario where idtipo_usuario = 3";
 
     private static final String SELECT_USER_BY_ID = "SELECT id_usuario, nombre, apellidos, email, curp, nombre_usuario, estado_usuario FROM usuario WHERE id_usuario = ?";
 
