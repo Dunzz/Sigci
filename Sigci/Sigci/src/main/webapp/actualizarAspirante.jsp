@@ -30,7 +30,7 @@
     <input type="hidden" value="${user.id_usuario}" name="id_usuario" />
     <input type="submit" value="Aceptar">
 </form>
-<a href="getAdminListaAspirantes">Volver a la lista</a>
+<a href="getListaAdminAspirantes">Volver a la lista</a>
 
 </body>
 </html>
