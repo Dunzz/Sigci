@@ -94,7 +94,7 @@
                    26 27 28 30 4 30 42 0 46 -14 2 -23 10 -23 21 0 16 -18 41 -30 41 -3 0 -11 -5
                    -18 -12z"/>
                         </g>
-                    </svg>  <br>Gestionar aspirantes</h5>
+                    </svg>  <br>Registrar Grupos</h5>
                     <p class="card-text">Permite administrar los solicitantes en el sistema.</p>
                 </div>
             </div>
