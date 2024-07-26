@@ -127,7 +127,7 @@
             </div>
         </div>
         <div class="col-md-6 col-lg-4">
-            <a href="getListaAspirantes">
+            <a href="getListaAdminAspirantes">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">
@@ -189,7 +189,7 @@
                      0 -10 -30 -10 -70z"/>
                             </g>
                         </svg>
-                        <center><a href="getListaAdminAspirantes">Gestionar aspirantes</a></center>
+                        <center>Gestionar aspirantes</center>
                     </h5>
                     <p class="card-text">
                     <center>Permite administrar los solicitantes en el sistema.</center>
@@ -275,9 +275,10 @@
         </div>
         <div class="col-md-6 col-lg-4">
             <div class="card">
+                <a href="gestionarMat.jsp">
                 <div class="card-body">
                     <h5 class="card-title">
-                        <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                        <svg  version="1.0" xmlns="http://www.w3.org/2000/svg"
                              width="190.000000pt" height="80.000000pt" viewBox="0 0 114.000000 96.000000"
                              preserveAspectRatio="xMidYMid meet">
 
@@ -313,12 +314,13 @@
                      -40 c41 -38 28 -105 -25 -127 -57 -24 -120 28 -107 89 13 58 87 80 132 38z"/>
                             </g>
                         </svg>
-                        <center><a href="gestionarMat.jsp">Gestionar materias</a></center>
+                        <center>Gestionar materias</center>
                     </h5>
                     <p class="card-text">
                     <center>Permite administrar las materias.</center>
                     </p>
                 </div>
+            </a>
             </div>
         </div>
         <div class="col-md-6 col-lg-4">
