@@ -199,6 +199,7 @@
             </a>
         </div>
         <div class="col-md-6 col-lg-4">
+            <a href="GestionarGP.jsp">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">
@@ -265,13 +266,14 @@
                                 <path d="M827 264 c-9 -10 2 -24 19 -24 8 0 14 7 14 15 0 15 -21 21 -33 9z"/>
                             </g>
                         </svg>
-                        <center>Gestionar grupos</center>
+                        <center>Registrar grupos</center>
                     </h5>
                     <p class="card-text">
                     <center>Permite administrar la gestión de grupos.</center>
                     </p>
                 </div>
             </div>
+            </a>
         </div>
         <div class="col-md-6 col-lg-4">
             <div class="card">

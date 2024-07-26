@@ -25,7 +25,7 @@ public class RegistrarGrupoServlet extends HttpServlet {
 
         GrupoDao dao = new GrupoDao();
         if (dao.insert(grupo)){
-            resp.sendRedirect("gestionarDoc.jsp");
+            resp.sendRedirect("GestionarGP.jsp");
         }else {
             // La info no a sido insertada y regresa al formulario
             HttpSession session = req.getSession();

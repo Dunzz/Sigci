@@ -24,7 +24,6 @@ public class GetListaAdminAspirantesServlet extends HttpServlet {
         dao = new UserDao();
     }
 
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
