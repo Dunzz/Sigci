@@ -10,6 +10,11 @@ body {
     line-height: 1.6;
 }
 
+a{
+    text-decoration: none;
+    color: black;
+}
+
 /* clase del nombre Administrador */
 .user {
     display: inline-block;

@@ -58,8 +58,9 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-lg-4">
+            <a href="registrar.jsp">
             <div class="card">
-                <div class="card-body" onclick="irAregistrar()" >
+                <div class="card-body" >
                     <h5 class="card-title"> <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                                                  width="200.000000pt" height="75.000000pt" viewBox="0 0 512.000000 512.000000"
                                                  preserveAspectRatio="xMidYMid meet">
@@ -84,12 +85,15 @@
                    -157 -51 -342 -114z"/>
                         </g>
                     </svg>
-                        <br> <center><a href="registrar.jsp">Registrar docente</a></center></h5>
+                        <br> <center>Registrar docente</center></h5>
                 </div>
             </div>
+            </a>
         </div>
         <div class="col-md-6 col-lg-4">
+            <a href="getListaDocentes">
             <div class="card">
+
                 <div class="card-body">
                     <h5 class="card-title"> <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                                                  width="200.000000pt" height="75.000000pt" viewBox="0 0 128.000000 128.000000"
@@ -113,12 +117,15 @@
                    -36 -37z"/>
                         </g>
                     </svg>
-                        <br><a href="getListaDocentes"><center>Actualizar docente</center></a></h5>
+                        <br><center>Actualizar docente</center></h5>
                 </div>
+
             </div>
+            </a>
         </div>
 
         <div class="col-md-6 col-lg-4">
+            <a>
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title"> <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
@@ -148,11 +155,13 @@
                    -221 20 -108 49 -108 231 0 280 37 17 66 20 221 20 l177 0 0 178 c0 154 3 183
                    20 220 34 74 130 102 218 62z"/>
                         </g>
-                    </svg><br><center>Asignar docente a meterias</center></h5>
+                    </svg><br><center>Asignar docente a materias</center></h5>
                 </div>
             </div>
+            </a>
         </div>
         <div class="col-md-6 col-lg-4">
+            <a>
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title"><svg version="1.0" xmlns="http://www.w3.org/2000/svg"
@@ -200,6 +209,7 @@
                         <br><center>Asignar grupos a docente</center></h5>
                 </div>
             </div>
+            </a>
         </div>
 
     </div>

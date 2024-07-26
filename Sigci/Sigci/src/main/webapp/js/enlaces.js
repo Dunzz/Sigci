@@ -3,3 +3,7 @@ function irAgestionarDoc() {
 
 }
 
+function irAregistrar(){
+    window.location.href='registrar.jsp'
+}
+

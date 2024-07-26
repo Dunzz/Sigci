@@ -22,6 +22,11 @@ body {
     border-color: #5784E6;
 }
 
+a{
+    text-decoration: none;
+    color: black;
+}
+
 
 /* Para el menu de iconos cards*/
 .container{
