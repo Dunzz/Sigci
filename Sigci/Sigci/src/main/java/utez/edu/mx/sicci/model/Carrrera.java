@@ -5,7 +5,6 @@ public class Carrrera {
         int idcarrrera;
         String descripcion;
         int id_division;
-
         int usuario_id_usuario;
         public Carrrera(int idcarrrera, String descripcion, int id_division, int usuario_id_usuario) {
             this.idcarrrera = idcarrrera;
