@@ -10,6 +10,9 @@ public class Division {
         this.nombre = nombre;
     }
 
+    public Division(){
+    }
+
     public int getId_division() {
         return id_division;
     }

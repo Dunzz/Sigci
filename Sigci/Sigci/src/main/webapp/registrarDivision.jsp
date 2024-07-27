@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Angel
+  User: jerss
   Date: 26/07/2024
-  Time: 10:29 p. m.
+  Time: 10:32 p. m.
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -10,11 +10,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrar Carrera</title>
+    <title>Registrar División</title>
     <link href="<%= request.getContextPath() %>/css/bootstrap.css" rel="stylesheet">
     <link href="<%= request.getContextPath() %>/css/registrar.css" rel="stylesheet">
-    <link href="<%= request.getContextPath() %>/css/registrarGrupo.css" rel="stylesheet">
-</head>
+    <link href="<%= request.getContextPath() %>/css/registrarGrupo.css" rel="stylesheet"></head>
 <body>
 <header>
     <div class="user">
@@ -50,20 +49,12 @@
 </header>
 <div class="container">
     <div class="login-box">
-        <center><h2>Registrar Carreras</h2></center>
+        <center><h2>Registrar Divisiones</h2></center>
         <br>
-        <form id="FormLogin" action="registrarCarrera" name="registroCarrera" method="post">
+        <form id="FormLogin" action="registrarDivision" name="registroDivision" method="post">
             <div class="user-box">
-                <input type="text" id="descripcion" name="descripcion" required>
-                <label> Nombre</label>
-            </div>
-            <div class="user-box">
-                <input type="number" id="id_division" name="id_division" required>
-                <label> Id de la Division</label>
-            </div>
-            <div class="user-box">
-                <input type="number" id="usuario_id_usuario" name="usuario_id_usuario" required>
-                <label> Id de la Division</label>
+                <input type="text" id="nombre" name="nombre" required>
+                <label> Nombre </label>
             </div>
             <center><input type="submit" class="registrar" value="registrar"></center>
         </form>
@@ -128,7 +119,7 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
         </g>
     </svg>
 </div>
-
 </body>
 <script src="<%= request.getContextPath() %>/js/bootstrap.js"></script>
+
 </html>

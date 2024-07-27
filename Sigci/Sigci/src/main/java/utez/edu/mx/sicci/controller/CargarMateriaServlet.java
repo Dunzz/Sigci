@@ -36,7 +36,7 @@ public class CargarMateriaServlet extends HttpServlet {
         req.setAttribute("materiaList", materiaList);
         List<Grupo> grupoList = grupoDao.getAllGrupo();
         req.setAttribute("grupoList", grupoList);
-        List<Carrera> carreraList = carreraDao.getAllCarrera();
+        List<Carrrera> carreraList = carreraDao.getAllCarrera();
         req.setAttribute("carreraList",carreraList);
         List<Division> divisionList = divisionDao.getAllDivision();
         req.setAttribute("divisionList",divisionList);

@@ -1,7 +1,8 @@
 package utez.edu.mx.sicci.dao;
 
-import utez.edu.mx.sicci.model.Carrera;
+import utez.edu.mx.sicci.model.Carrrera;
 import utez.edu.mx.sicci.model.Division;
+import utez.edu.mx.sicci.model.Grupo;
 import utez.edu.mx.sicci.utils.DatabaseConnectionManager;
 
 import java.sql.Connection;
@@ -29,5 +30,24 @@ public class DivisionDao {
             e.printStackTrace();
         }
         return division;
+    }
+
+    public boolean insert (Division division){
+        boolean flag = false;
+        String query = "INSERT INTO division(id_division, nombre) values(?,?)";
+
+        try {
+            Connection con = DatabaseConnectionManager.getConnection();
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1,division.getId_division());
+            ps.setString(2,division.getNombre());
+
+            if(ps.executeUpdate()==1){
+                flag = true; //si se inserto el dato
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return flag;
     }
 }
