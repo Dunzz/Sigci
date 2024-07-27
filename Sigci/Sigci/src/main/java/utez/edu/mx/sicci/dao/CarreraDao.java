@@ -30,4 +30,25 @@ public class CarreraDao {
         }
         return carrera;
     }
+
+    public boolean insert (Carrera carrera){
+        boolean flag = false;
+        String query = "INSERT INTO carrera(idcarrrera, descripcion) values(?,?)";
+
+        try {
+            Connection con = DatabaseConnectionManager.getConnection();
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1,carrera.getId_carrrera());
+            ps.setString(2, carrera.getDescripcion());
+
+            if(ps.executeUpdate()==1){
+                flag = true; //si se inserto el dato
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
 }
+

@@ -10,6 +10,10 @@ public class Carrera {
         this.descripcion = descripcion;
     }
 
+public Carrera(){
+
+}
+
     public int getId_carrrera() {
         return id_carrrera;
     }
