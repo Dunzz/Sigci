@@ -17,6 +17,7 @@ header {
     margin-right: 8px;
     border-color: #5784E6;
 }
+
 .logout-button {
 
     display: inline-block;
@@ -35,47 +36,43 @@ header {
     background-color: #57B6E6;
 }
 
+
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
     background-color: #f4f4f4;
+    margin: 20px;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+    background-color: #96B7D8;
+    color: #000000;
 }
 
 th, td {
     padding: 12px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
-
 }
 
 th {
-    background-color: #223B87;
-    color: #fff;
-    font-weight: bold;
+    border-bottom: 2px solid #000000;
 }
 
-tr:nth-child(even) {
-    background-color: #f2f2f2;
+td {
+    border-bottom: 1px solid #ddd;
 }
 
-tr:hover {
-    background-color: #ddd;
+.table-container {
+    margin: auto;
+    max-width: 1200px;
 }
 
-thead th {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-}
 .logo{
     content: " ";
     position: absolute;
