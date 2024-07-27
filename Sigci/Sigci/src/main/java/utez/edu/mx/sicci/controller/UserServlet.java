@@ -26,7 +26,13 @@ public class UserServlet extends HttpServlet {
 
         if(u.getEmail() != null) {
             // Que el usuario SI existe en la base de datos
-            ruta = "menuAdminppal.jsp";//puse el menu admin aqui pero debe de midentificar si es docente o admind
+           if (u.getIdtipo_usuario()==1){
+               ruta="menuAdminppal.jsp";
+           } else if(u.getIdtipo_usuario()==2){
+               ruta="index.jsp";
+           } else {
+               ruta = "Alerta.jsp" ;
+           }
         } else {
             //Que el usuario No existe
             HttpSession sesion = request.getSession();

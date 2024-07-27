@@ -48,6 +48,7 @@ public class UserDao {
                 u.setEstado_usuario(rs.getInt("estado_usuario"));
                 u.setNombre_usuario(rs.getString("nombre_usuario"));
                 u.setFecha_creacion(rs.getString("fecha_creacion"));
+                u.setIdtipo_usuario(rs.getInt("idtipo_usuario"));
             }
         } catch (SQLException e){
             e.printStackTrace();
