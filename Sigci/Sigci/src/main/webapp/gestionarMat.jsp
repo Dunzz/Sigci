@@ -56,7 +56,7 @@
     <div class="row">
         <div class="col-md-6 col-lg-4">
             <div class="card">
-                <div class="card-body" onclick="irAregistrar()" >
+                <div class="card-body">
                     <h5 class="card-title"> <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                                                  width="200.000000pt" height="75.000000pt" viewBox="0 0 512.000000 512.000000"
                                                  preserveAspectRatio="xMidYMid meet">
@@ -83,7 +83,7 @@ l-88 12 0 1003 c0 714 -3 1010 -11 1027 -6 14 -22 30 -36 36 -27 13 -3566 14
                         </g>
                     </svg>
 
-                        <br> <center><a href="registrarMateria.jsp">Registrar materias</a></center></h5>
+                        <br> <center><a href="registrarMateria">Registrar materias</a></center></h5>
                 </div>
             </div>
         </div>

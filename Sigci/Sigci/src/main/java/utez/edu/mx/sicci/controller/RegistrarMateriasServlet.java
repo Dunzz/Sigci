@@ -28,7 +28,7 @@ public class RegistrarMateriasServlet extends HttpServlet {
         }else {
             HttpSession session = req.getSession();
             session.setAttribute("mensajaeError", "Puede que la materia ya haya sido registrada");
-            resp.sendRedirect("registrarMateria");
+            resp.sendRedirect("registrarMateria.jsp");
         }
     }
     @Override
