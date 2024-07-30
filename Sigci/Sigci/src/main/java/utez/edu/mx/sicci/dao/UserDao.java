@@ -24,7 +24,7 @@ public class UserDao {
     public User getOne(String correo, String pass){
         User u = new User();
         //Los simbolos ? son para evitar la inyección de código SQL
-        String query = "select * from usuario where email = ? and password = ?";
+        String query = "select * from usuario where email = ? and password = sha2(?,256)";
 
         try{
             //Conectarme a la base de datos

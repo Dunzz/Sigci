@@ -23,7 +23,6 @@ public class RegistrarCarreraServlet extends HttpServlet {
         Carrrera carrrera = new Carrrera();
         carrrera.setDescripcion(req.getParameter("descripcion"));
         carrrera.setId_division(Integer.parseInt(req.getParameter("id_division")));
-        carrrera.setUsuario_id_usuario(Integer.parseInt(req.getParameter("usuario_id_usuario")));
 
         // Se llama al DAO para insertar
 

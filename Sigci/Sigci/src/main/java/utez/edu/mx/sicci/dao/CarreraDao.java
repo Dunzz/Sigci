@@ -33,7 +33,7 @@ public class CarreraDao {
 
     public boolean insert (Carrrera carrrera){
         boolean flag = false;
-        String query = "INSERT INTO carrrera(idcarrrera, descripcion, id_division, usuario_id_usuario) values(?,?,?,?)";
+        String query = "INSERT INTO carrrera(idcarrrera, descripcion, id_division) values(?,?,?)";
 
         try {
             Connection con = DatabaseConnectionManager.getConnection();
@@ -41,7 +41,6 @@ public class CarreraDao {
             ps.setInt(1,carrrera.getIdcarrrera());
             ps.setString(2, carrrera.getDescripcion());
             ps.setInt(3, carrrera.getId_division());
-            ps.setInt(4,carrrera.getUsuario_id_usuario());
 
             if(ps.executeUpdate()==1){
                 flag = true; //si se inserto el dato

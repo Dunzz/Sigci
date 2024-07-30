@@ -61,10 +61,6 @@
                 <input type="number" id="id_division" name="id_division" required>
                 <label> Id de la Division</label>
             </div>
-            <div class="user-box">
-                <input type="number" id="usuario_id_usuario" name="usuario_id_usuario" required>
-                <label> Id de la Division</label>
-            </div>
             <center><input type="submit" class="registrar" value="registrar"></center>
         </form>
     </div>
