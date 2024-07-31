@@ -1,3 +1,9 @@
+<%
+    // Estas lineas lo que hacen es borrar la caché, si el usuario cierra la sesión, y quiere regresar a la página de atras no lo dejaría
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
+    response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+    response.setDateHeader("Expires", 0); // Proxies.
+%>
 <%@ page import="utez.edu.mx.sicci.dao.UserDao" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="utez.edu.mx.sicci.model.User" %>
@@ -10,6 +16,10 @@
 
 </head>
 <body>
+<%
+    User user = (User) session.getAttribute("user");
+    if(user != null){
+%>
 <header>
     <div class="user">
         <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +50,7 @@
         </svg>
         Administrador
     </div>
-    <a class="logout-button" href="index.jsp">Salir</a>
+    <a class="logout-button" href="logout">Salir</a>
 </header>
 <h5>Gestionar Aspirantes</h5>
 <table>
@@ -73,5 +83,12 @@
     <% }} %>
     </tbody>
 </table>
+<%
+}else{
+%>
+<a href="${pageContext.request.contextPath}/login.jsp">Iniciar Sesión</a>
+<%
+    }
+%>
 </body>
 </html>

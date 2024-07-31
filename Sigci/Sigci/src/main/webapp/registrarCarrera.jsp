@@ -1,11 +1,12 @@
+<%
+    // Estas lineas lo que hacen es borrar la caché, si el usuario cierra la sesión, y quiere regresar a la página de atras no lo dejaría
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
+    response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+    response.setDateHeader("Expires", 0); // Proxies.
+%>
 <%@ page import="utez.edu.mx.sicci.model.Division" %>
-<%@ page import="java.util.List" %><%--
-  Created by IntelliJ IDEA.
-  User: Angel
-  Date: 26/07/2024
-  Time: 10:29 p. m.
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.List" %>
+<%@ page import="utez.edu.mx.sicci.model.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -16,6 +17,10 @@
     <link href="<%= request.getContextPath() %>/css/registrar.css" rel="stylesheet">
     <link href="<%= request.getContextPath() %>/css/registrarGrupo.css" rel="stylesheet">
 </head>
+<%
+    User u = (User) session.getAttribute("user");
+    if(u != null){
+%>
 <body>
 <header>
     <div class="user">
@@ -47,7 +52,7 @@
         </svg>
         Administrador
     </div>
-    <a class="logout-button" href="index.jsp">Salir</a>
+    <a class="logout-button" href="logout">Salir</a>
 </header>
 <div class="container">
     <div class="login-box">
@@ -60,7 +65,7 @@
             </div>
             <div class="user-box">
                 <select name="id_division" id="id_division" class="input" required>
-                    <<%
+                    <%
                     List<Division> divisionList = (List<Division>) request.getAttribute("lista_division");
                     if (divisionList != null){
                         for (Division division : divisionList){
@@ -135,7 +140,13 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
         </g>
     </svg>
 </div>
-
+<%
+    }else{
+%>
+<a href="${pageContext.request.contextPath}/login.jsp">Iniciar Sesión</a>
+<%
+    }
+%>
 </body>
 <script src="<%= request.getContextPath() %>/js/bootstrap.js"></script>
 </html>

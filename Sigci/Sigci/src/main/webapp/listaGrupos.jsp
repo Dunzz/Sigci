@@ -1,11 +1,12 @@
+<%
+    // Estas lineas lo que hacen es borrar la caché, si el usuario cierra la sesión, y quiere regresar a la página de atras no lo dejaría
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
+    response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+    response.setDateHeader("Expires", 0); // Proxies.
+%>
 <%@ page import="utez.edu.mx.sicci.model.Grupo" %>
-<%@ page import="java.util.List" %><%--
-  Created by IntelliJ IDEA.
-  User: jerss
-  Date: 26/07/2024
-  Time: 12:07 a. m.
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.List" %>
+<%@ page import="utez.edu.mx.sicci.model.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -14,6 +15,10 @@
     <link href="<%= request.getContextPath() %>/css/listaGrupos.css" rel="stylesheet">
 </head>
 <body>
+<%
+    User u = (User) session.getAttribute("user");
+    if(u != null){
+%>
 <header>
     <div class="user">
         <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +49,7 @@
         </svg>
         Administrador
     </div>
-    <a class="logout-button" href="index.jsp">Salir</a>
+    <a class="logout-button" href="logout">Salir</a>
 </header>
 <br>
 <center>
@@ -131,6 +136,12 @@ c-31 0 -70 30 -70 53 0 19 -20 36 -36 30 -19 -7 -18 -53 2 -81 20 -29 66 -52
     </svg>
 </div>
 
-
+<%
+}else{
+%>
+<a href="${pageContext.request.contextPath}/login.jsp">Iniciar Sesión</a>
+<%
+    }
+%>
 </body>
 </html>
