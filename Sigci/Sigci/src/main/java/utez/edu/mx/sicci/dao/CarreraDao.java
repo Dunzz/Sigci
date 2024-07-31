@@ -33,14 +33,13 @@ public class CarreraDao {
 
     public boolean insert (Carrrera carrrera){
         boolean flag = false;
-        String query = "INSERT INTO carrrera(idcarrrera, descripcion, id_division) values(?,?,?)";
+        String query = "INSERT INTO carrrera(descripcion, id_division) values(?,?)";
 
         try {
             Connection con = DatabaseConnectionManager.getConnection();
             PreparedStatement ps = con.prepareStatement(query);
-            ps.setInt(1,carrrera.getIdcarrrera());
-            ps.setString(2, carrrera.getDescripcion());
-            ps.setInt(3, carrrera.getId_division());
+            ps.setString(1, carrrera.getDescripcion());
+            ps.setInt(2, carrrera.getId_division());
 
             if(ps.executeUpdate()==1){
                 flag = true; //si se inserto el dato

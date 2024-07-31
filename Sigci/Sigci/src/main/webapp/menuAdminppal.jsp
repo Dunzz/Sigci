@@ -1,16 +1,11 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Angel
-  Date: 10/07/2024
-  Time: 10:36 p. m.
-  To change this template use File | Settings | File Templates.
---%>
 <%
     // Estas lineas lo que hacen es borrar la caché, si el usuario cierra la sesión, y quiere regresar a la página de atras no lo dejaría
     response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
     response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
     response.setDateHeader("Expires", 0); // Proxies.
 %>
+<%@ page import="utez.edu.mx.sicci.model.User" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -23,6 +18,10 @@
     <link rel="stylesheet" href="<%= request.getContextPath() %>/css/menuAdminppal.css">
 </head>
 <body>
+<%
+    User u = (User) session.getAttribute("user");
+    if(u != null){
+%>
 <header>
     <div class="user">
         <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
@@ -55,8 +54,7 @@
         Bienvenido a administrador
     </div>
 
-
-    <a class="logout-button" href="index.jsp">Salir</a>
+    <a class="logout-button" href="logout">Salir</a>
 </header>
 
 
@@ -390,6 +388,67 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-6 col-lg-4">
+            <a href="asignarCarrera">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                             width="200.000000pt" height="90.000000pt" viewBox="0 0 193.000000 169.000000"
+                             preserveAspectRatio="xMidYMid meet">
+
+                            <g transform="translate(0.000000,155.000000) scale(0.100000,-0.100000)"
+                               fill="#002DA0" stroke="none">
+                                <path d="M935 1530 c-55 -61 -181 -115 -310 -134 l-80 -11 0 -185 c1 -162 4
+                     -194 23 -255 27 -87 66 -155 126 -222 l47 -52 -232 -3 -231 -3 -24 -28 c-24
+                     -28 -24 -29 -24 -266 l0 -238 26 -24 c24 -23 32 -24 177 -27 154 -3 185 3 174
+                     32 -5 14 -28 16 -160 16 -106 0 -157 4 -165 12 -17 17 -17 449 0 466 9 9 173
+                     12 678 12 505 0 669 -3 678 -12 15 -15 17 -445 2 -468 -8 -13 -77 -16 -487
+                     -20 -263 -3 -477 -8 -475 -12 1 -5 2 -12 2 -18 0 -13 929 -14 964 0 50 19 56
+                     49 56 289 l0 221 -29 32 -29 33 -420 3 -420 3 -56 59 c-31 32 -56 62 -56 67 0
+                     15 63 85 102 114 l39 28 42 -22 c55 -29 130 -29 180 0 l36 22 44 -30 c42 -28
+                     97 -93 97 -115 0 -6 -9 -19 -20 -29 -23 -20 -26 -40 -8 -51 17 -11 83 68 118
+                     141 50 104 61 174 58 363 l-3 167 -78 12 c-127 19 -209 53 -286 117 -50 42
+                     -52 42 -76 16z m78 -74 c63 -45 160 -83 248 -97 l71 -12 -4 -181 c-4 -171 -5
+                     -185 -32 -254 l-29 -73 -41 45 c-47 51 -110 96 -137 96 -10 0 -34 -10 -54 -21
+                     -44 -26 -118 -23 -161 8 l-29 21 -41 -22 c-50 -26 -80 -51 -117 -94 l-27 -34
+                     -24 54 c-36 82 -46 147 -46 306 l0 147 85 17 c87 16 209 68 255 106 14 12 27
+                     21 30 22 3 0 27 -15 53 -34z"/>
+                                <path d="M882 1320 c-51 -31 -74 -76 -69 -136 14 -198 297 -188 297 10 0 56
+                     -26 103 -71 130 -38 22 -117 20 -157 -4z m131 -31 c48 -22 71 -93 46 -142 -32
+                     -62 -114 -77 -168 -31 -96 81 6 226 122 173z"/>
+                                <path d="M1354 570 c-35 -14 -64 -59 -64 -98 0 -28 -7 -42 -27 -58 -27 -21
+                     -28 -26 -28 -114 0 -126 5 -130 167 -130 113 0 120 1 143 25 22 22 25 32 25
+                     105 0 73 -2 83 -25 106 -16 15 -25 36 -25 55 0 85 -86 142 -166 109z m79 -41
+                     c26 -12 47 -47 47 -79 0 -18 -7 -20 -75 -20 -68 0 -75 2 -75 20 0 30 20 67 44
+                     78 28 14 31 14 59 1z m95 -224 c4 -90 -3 -95 -121 -95 -121 0 -127 4 -127 89
+                     0 37 3 71 7 75 4 3 59 5 122 4 l116 -3 3 -70z"/>
+                                <path d="M447 484 c-4 -4 -7 -20 -7 -36 0 -32 0 -32 -35 -16 -20 9 -28 9 -38
+                     -1 -9 -10 -6 -17 16 -35 l27 -22 -27 -21 c-22 -17 -25 -24 -16 -34 10 -10 18
+                     -10 38 -1 35 16 35 16 35 -18 0 -23 4 -30 20 -30 16 0 20 7 20 30 0 31 17 39
+                     37 19 15 -15 43 -4 43 15 0 9 -12 22 -27 30 l-28 14 28 13 c51 23 18 57 -35
+                     35 -13 -6 -17 -1 -20 25 -3 32 -17 46 -31 33z"/>
+                                <path d="M717 483 c-4 -3 -7 -19 -7 -35 0 -25 -2 -27 -19 -18 -48 25 -71 -6
+                     -29 -40 l22 -17 -22 -12 c-25 -13 -30 -51 -6 -51 8 0 24 5 35 10 17 10 19 7
+                     19 -20 0 -27 3 -31 23 -28 16 2 23 11 25 31 3 22 7 27 20 22 51 -21 73 13 25
+                     38 l-28 15 28 13 c15 7 27 20 27 31 0 20 -21 23 -51 8 -16 -9 -19 -7 -19 9 0
+                     41 -23 65 -43 44z"/>
+                                <path d="M986 475 c-3 -9 -6 -25 -6 -36 0 -16 -3 -18 -19 -9 -30 15 -51 12
+                     -51 -8 0 -11 12 -24 27 -31 l28 -13 -28 -14 c-15 -9 -27 -23 -27 -34 0 -22 20
+                     -26 51 -10 16 9 19 7 19 -13 0 -32 22 -51 38 -35 7 7 12 23 12 36 0 17 4 22
+                     15 18 8 -3 22 -9 30 -12 27 -11 30 27 4 47 -20 16 -22 20 -9 29 8 5 18 10 23
+                     10 4 0 7 9 7 20 0 22 -24 27 -50 10 -12 -8 -16 -3 -20 23 -5 35 -33 49 -44 22z"/>
+                            </g>
+                        </svg>
+                        <center>Gestionar Carrera</center>
+                    </h5>
+                    <p class="card-text">
+                    <center>Permite administrar las carreras.</center>
+                    </p>
+                </div>
+            </div>
+            </a>
+        </div>
     </div>
 </div>
 
@@ -467,6 +526,13 @@
 </footer>
 <script src="<%= request.getContextPath() %>/js/enlaces.js"></script>
 <script src="<%= request.getContextPath() %>/js/bootstrap.js"></script>
+<%
+    }else{
+%>
+<a href="${pageContext.request.contextPath}/login.jsp">Iniciar Sesión</a>
+<%
+    }
+%>
 </body>
 </html>
 

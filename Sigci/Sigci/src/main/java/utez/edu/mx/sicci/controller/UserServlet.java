@@ -21,10 +21,14 @@ public class UserServlet extends HttpServlet {
         String pass =request.getParameter("pass");
         UserDao dao = new UserDao();
         User u = dao.getOne(email, pass);
+        HttpSession session = request.getSession(false);
 
         String ruta = "login.jsp";
 
         if(u.getEmail() != null) {
+            session = request.getSession();
+            session.setAttribute("user", u); // manda la sesion con el valor user al jsp
+            request.setAttribute("user", u); // manda la sesion con el valor user al jsp
             // Que el usuario SI existe en la base de datos
            if (u.getIdtipo_usuario()==1){
                ruta="menuAdminppal.jsp";
@@ -35,7 +39,7 @@ public class UserServlet extends HttpServlet {
            }
         } else {
             //Que el usuario No existe
-            HttpSession sesion = request.getSession();
+            session = request.getSession();
             ruta = "Alerta.jsp" ;
         }
 

@@ -5,12 +5,10 @@ public class Carrrera {
         int idcarrrera;
         String descripcion;
         int id_division;
-        int usuario_id_usuario;
         public Carrrera(int idcarrrera, String descripcion, int id_division, int usuario_id_usuario) {
             this.idcarrrera = idcarrrera;
             this.descripcion = descripcion;
             this.id_division = id_division;
-            this.usuario_id_usuario = usuario_id_usuario;
         }
 
         public Carrrera(int idcarrrera, String descripcion) {
@@ -46,11 +44,4 @@ public class Carrrera {
         this.id_division = id_division;
     }
 
-    public int getUsuario_id_usuario() {
-        return usuario_id_usuario;
-    }
-
-    public void setUsuario_id_usuario(int usuario_id_usuario) {
-        this.usuario_id_usuario = usuario_id_usuario;
-    }
 }

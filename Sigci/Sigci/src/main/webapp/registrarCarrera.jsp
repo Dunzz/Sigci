@@ -1,4 +1,5 @@
-<%--
+<%@ page import="utez.edu.mx.sicci.model.Division" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: Angel
   Date: 26/07/2024
@@ -58,8 +59,18 @@
                 <label> Nombre</label>
             </div>
             <div class="user-box">
-                <input type="number" id="id_division" name="id_division" required>
-                <label> Id de la Division</label>
+                <select name="id_division" id="id_division" class="input" required>
+                    <<%
+                    List<Division> divisionList = (List<Division>) request.getAttribute("lista_division");
+                    if (divisionList != null){
+                        for (Division division : divisionList){
+                %>
+                    <option value="<%= division.getId_division() %>"><%= division.getNombre() %></option>
+                    <%
+                            }
+                        }
+                    %>
+                </select>
             </div>
             <center><input type="submit" class="registrar" value="registrar"></center>
         </form>
