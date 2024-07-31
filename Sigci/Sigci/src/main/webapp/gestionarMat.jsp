@@ -126,9 +126,11 @@ c-7 213 10 199 -242 199 -187 0 -189 0 -213 -25 l-25 -24 0 -509 c0 -487 1
         </div>
 
         <div class="col-md-6 col-lg-4">
+            <a href="asignarMatDoc.jsp">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title"> <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                    <h5 class="card-title">
+                        <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                                                  width="200.000000pt" height="75.000000pt" viewBox="0 0 512.000000 512.000000"
                                                  preserveAspectRatio="xMidYMid meet">
 
@@ -155,9 +157,10 @@ c-7 213 10 199 -242 199 -187 0 -189 0 -213 -25 l-25 -24 0 -509 c0 -487 1
                    -221 20 -108 49 -108 231 0 280 37 17 66 20 221 20 l177 0 0 178 c0 154 3 183
                    20 220 34 74 130 102 218 62z"/>
                         </g>
-                    </svg><br><center>Asignar docente a meterias</center></h5>
+                    </svg><br><center>Asignar docente a materias</center></h5>
                 </div>
             </div>
+            </a>
         </div>
         <div class="col-md-6 col-lg-4">
             <div class="card">
