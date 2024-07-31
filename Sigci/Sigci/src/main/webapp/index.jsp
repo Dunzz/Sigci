@@ -1,3 +1,9 @@
+<%
+  // Estas lineas lo que hacen es borrar la caché, si el usuario cierra la sesión, y quiere regresar a la página de atras no lo dejaría
+  response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
+  response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+  response.setDateHeader("Expires", 0); // Proxies.
+%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="es">
