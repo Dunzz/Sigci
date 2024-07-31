@@ -130,7 +130,7 @@
         </div>
 
         <div class="col-md-6 col-lg-4">
-            <a>
+            <a href="listasDocenteMateria">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title"> <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
@@ -166,7 +166,7 @@
             </a>
         </div>
         <div class="col-md-6 col-lg-4">
-            <a>
+
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title"><svg version="1.0" xmlns="http://www.w3.org/2000/svg"
@@ -214,7 +214,6 @@
                         <br><center>Asignar grupos a docente</center></h5>
                 </div>
             </div>
-            </a>
         </div>
 
     </div>

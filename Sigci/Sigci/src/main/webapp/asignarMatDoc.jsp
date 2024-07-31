@@ -1,4 +1,7 @@
-<%--
+<%@ page import="utez.edu.mx.sicci.model.User" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="utez.edu.mx.sicci.model.Materia" %><%--
   Created by IntelliJ IDEA.
   User: Angel
   Date: 30/07/2024
@@ -48,21 +51,17 @@
 </header>
 <div class="container">
     <div class="login-box">
-        <center><h2>Registrar Carreras</h2></center>
+        <center><h2>Asignar Materias a Docente</h2></center>
         <br>
-        <form id="FormLogin" action="registrarCarrera" name="registroCarrera" method="post">
+        <form id="FormLogin" action="asignarMateriaDocente" name="asignarMateriaDocente" method="post">
             <div class="user-box">
-                <input type="text" id="descripcion" name="descripcion" required>
-                <label> Nombre</label>
-            </div>
-            <div class="user-box">
-                <select name="id_division" id="id_division" class="input" required>
+                <select name="usuario_id_usuario" id="usuario_id_usuario" class="input" required>
                     <<%
-                    List<Division> divisionList = (List<Division>) request.getAttribute("lista_division");
-                    if (divisionList != null){
-                        for (Division division : divisionList){
+                    List<User> usuarioList = (List<User>) request.getAttribute("lista_user");
+                    if (usuarioList != null){
+                        for (User user : usuarioList){
                 %>
-                    <option value="<%= division.getId_division() %>"><%= division.getNombre() %></option>
+                    <option value="<%= user.getId_usuario() %>"><%= user.getNombre() %> <%= user.getApellidos() %></option>
                     <%
                             }
                         }
@@ -71,13 +70,13 @@
             </div>
 
             <div class="user-box">
-                <select name="id_division" id="id_division" class="input" required>
+                <select name="materia_id_materia" id="materia_id_materia" class="input" required>
                     <<%
-                    List<Division> divisionList = (List<Division>) request.getAttribute("lista_division");
-                    if (divisionList != null){
-                        for (Division division : divisionList){
+                    List<Materia> materiaList = (List<Materia>) request.getAttribute("lista_materia");
+                    if (materiaList != null){
+                        for (Materia materia : materiaList){
                 %>
-                    <option value="<%= division.getId_division() %>"><%= division.getNombre() %></option>
+                    <option value="<%= materia.getId_materia() %>"><%= materia.getNombre_materia() %></option>
                     <%
                             }
                         }

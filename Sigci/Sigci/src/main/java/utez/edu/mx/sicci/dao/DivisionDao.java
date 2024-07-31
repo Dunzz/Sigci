@@ -3,6 +3,7 @@ package utez.edu.mx.sicci.dao;
 import utez.edu.mx.sicci.model.Carrrera;
 import utez.edu.mx.sicci.model.Division;
 import utez.edu.mx.sicci.model.Grupo;
+import utez.edu.mx.sicci.model.Usuario_has_Materia;
 import utez.edu.mx.sicci.utils.DatabaseConnectionManager;
 
 import java.sql.Connection;
@@ -50,4 +51,24 @@ public class DivisionDao {
         }
         return flag;
     }
+
+    public boolean asignar (Usuario_has_Materia usuario_has_materia){
+        boolean flag = false;
+        String query = "INSERT INTO usuario_has_materia(usuario_id_usuario, materia_id_materia) values(?,?)";
+
+        try {
+            Connection con = DatabaseConnectionManager.getConnection();
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1, usuario_has_materia.getUsuario_id_usuario());
+            ps.setInt(2, usuario_has_materia.getMateria_id_materia());
+
+            if(ps.executeUpdate()==1){
+                flag = true; //si se inserto el dato
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
 }
