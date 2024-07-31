@@ -63,7 +63,11 @@
     <input type="text" id="nombre_usuario" name="nombre_usuario" value="${user.nombre_usuario}" required>
     <br>
     <label>Ingrese su estado: </label>
-    <input type="text" id="estado_usuario" name="estado_usuario" value="${user.estado_usuario}" required>
+    <select id="estado_usuario" name="estado_usuario" required>
+        <option value="1" ${user.estado_usuario == 1 ? 'selected' : ''}>1</option>
+        <option value="0" ${user.estado_usuario == 0 ? 'selected' : ''}>0</option>
+    </select>
+
     <br>
     <input type="hidden" value="${user.id_usuario}" name="id_usuario" />
     <br>

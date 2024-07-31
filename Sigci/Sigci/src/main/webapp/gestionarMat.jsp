@@ -1,10 +1,10 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Angel
-  Date: 23/07/2024
-  Time: 12:05 a. m.
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="utez.edu.mx.sicci.model.User" %>
+<%
+    // Estas lineas lo que hacen es borrar la caché, si el usuario cierra la sesión, y quiere regresar a la página de atras no lo dejaría
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
+    response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+    response.setDateHeader("Expires", 0); // Proxies.
+%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -15,6 +15,10 @@
     <link rel="stylesheet" href="<%= request.getContextPath() %>/css/gestionarMat.css">
 </head>
 <body>
+<%
+    User u = (User) session.getAttribute("user");
+    if(u != null){
+%>
 <header>
     <div class="user"> <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                             width="40.000000pt" height="30.000000pt" viewBox="0 0 512.000000 512.000000"
@@ -46,7 +50,7 @@
 
 
 
-    <a class="logout-button" href="index.jsp">Salir</a>
+    <a class="logout-button" href="logout">Salir</a>
 </header>
 
 
@@ -288,5 +292,12 @@ c-7 213 10 199 -242 199 -187 0 -189 0 -213 -25 l-25 -24 0 -509 c0 -487 1
 </footer>
 <script src="<%= request.getContextPath() %>/js/enlaces.js"></script>
 <script src="<%= request.getContextPath() %>/js/bootstrap.js"></script>
+<%
+}else{
+%>
+<a href="${pageContext.request.contextPath}/login.jsp">Iniciar Sesión</a>
+<%
+    }
+%>
 </body>
 </html>
