@@ -133,34 +133,7 @@ c-7 213 10 199 -242 199 -187 0 -189 0 -213 -25 l-25 -24 0 -509 c0 -487 1
             </a>
         </div>
 
-        <div class="col-md-6 col-lg-4">
-            <a href="asignarMatDoc.jsp">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-                             width="200.000000pt" height="75.000000pt" viewBox="0 0 512.000000 512.000000"
-                             preserveAspectRatio="xMidYMid meet">
 
-                            <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-                               fill="#002DA0" stroke="none">
-                                <path d="M1323 3722 c-678 -284 -1233 -519 -1233 -522 0 -3 556 -238 1235
--523 l1236 -517 793 332 c483 203 788 335 777 339 -9 3 -374 71 -811 150 -871
-157 -840 149 -840 219 0 37 39 80 72 80 19 0 1553 -278 1716 -311 l52 -10 0
--807 0 -807 -36 -29 c-50 -39 -69 -89 -93 -241 -12 -71 -23 -145 -26 -162 l-6
--33 241 0 242 0 -6 27 c-3 16 -13 74 -21 131 -29 195 -42 233 -100 279 l-35
-28 0 810 0 810 275 115 c151 63 275 117 275 120 0 4 -2417 1021 -2460 1034 -8
-3 -570 -228 -1247 -512z"/>
-                                <path d="M1120 2082 c0 -576 -3 -553 81 -664 224 -300 826 -538 1359 -538 533
-0 1134 238 1360 538 83 111 81 89 78 664 l-3 506 -615 -259 c-670 -283 -786
--329 -826 -329 -14 0 -333 129 -708 286 -374 157 -691 290 -703 295 l-23 9 0
--508z"/>
-                            </g>
-                        </svg><br><center>Asignar docente a materias</center></h5>
-                </div>
-            </div>
-            </a>
-        </div>
     </div>
 </div>
 
@@ -240,7 +213,63 @@ c-7 213 10 199 -242 199 -187 0 -189 0 -213 -25 l-25 -24 0 -509 c0 -487 1
 <%
 }else{
 %>
-<a href="${pageContext.request.contextPath}/login.jsp">Iniciar Sesión</a>
+<style>
+    .container-logout {
+        text-align: center;
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .container-logout h1 {
+        color: #333;
+    }
+    .container-logout p {
+        color: #666;
+    }
+    .container-logout a {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+    .container-logout a:hover {
+        background-color: #0056b3;
+    }
+
+</style>
+<div class="container-logout">
+    <h1>Sesión Expirada</h1>
+    <br>
+    <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+         width="200.000000pt" height="100.000000pt" viewBox="0 0 512.000000 512.000000"
+         preserveAspectRatio="xMidYMid meet">
+
+        <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+           fill="#FB0D1C" stroke="none">
+            <path d="M2410 5114 c-565 -50 -978 -204 -1410 -528 -110 -82 -350 -317 -436
+-426 -246 -312 -420 -677 -503 -1056 -76 -344 -74 -759 5 -1108 216 -958 976
+-1717 1934 -1930 192 -43 347 -59 560 -59 354 0 670 62 987 194 496 207 930
+585 1213 1059 328 548 434 1223 294 1860 -229 1037 -1102 1836 -2158 1975
+-119 15 -401 26 -486 19z m340 -1794 l0 -760 -190 0 -190 0 0 760 0 760 190 0
+190 0 0 -760z m-570 117 l0 -204 -62 -32 c-305 -159 -499 -478 -499 -826 -1
+-203 46 -363 153 -526 54 -81 156 -191 228 -244 167 -124 411 -195 619 -180
+418 29 753 303 863 706 20 72 23 106 22 244 -1 143 -3 169 -27 248 -80 260
+-254 473 -479 583 l-58 28 0 204 0 203 23 -6 c388 -119 722 -445 851 -835 58
+-175 69 -246 69 -430 0 -184 -16 -282 -73 -445 -112 -319 -359 -595 -675 -753
+-22 -11 -80 -34 -130 -52 -439 -155 -913 -72 -1282 225 -242 195 -413 487
+-468 799 -20 115 -20 337 0 452 70 398 333 760 685 944 76 39 213 98 233 99 4
+1 7 -91 7 -202z"/>
+        </g>
+    </svg>
+    <br>
+    <p>Tu sesión ha expirado. Por favor, vuelve a iniciar sesión.</p>
+    <a href="${pageContext.request.contextPath}/login.jsp">Regresar</a>
+</div>
+<br>
 <%
     }
 %>
