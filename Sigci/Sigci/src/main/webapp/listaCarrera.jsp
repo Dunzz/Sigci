@@ -28,8 +28,8 @@
             for(Carrrera c : lista_carrera){ %>
     <tr>
         <td><%=c.getDescripcion()%> </td>
-        <td><a href="updateGrupo?id_grupo=<%=c.getIdcarrrera()%>">Actualizar</a></td> <!-- Funcionalidad de actualizar -->
-        <td><a href="borrarGrupo?id_grupo=<%=c.getIdcarrrera()%>">Borrar</a></td> <!-- Funcionalidad de borrar -->
+        <td><a href="updateCarrera?idcarrrera=<%=c.getIdcarrrera()%>">Actualizar</a></td> <!-- Funcionalidad de actualizar -->
+        <td><a href="borrarCarrera?idcarrrera=<%=c.getIdcarrrera()%>">Borrar</a></td> <!-- Funcionalidad de borrar -->
     </tr>
     <% }} %>
     </tbody>
