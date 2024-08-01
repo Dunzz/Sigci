@@ -8,7 +8,6 @@
     <link href="<%= request.getContextPath() %>/css/bootstrap.css" rel="stylesheet">
     <link href="<%= request.getContextPath() %>/css/actualizarMateria.css" rel="stylesheet">
 
-
 </head>
 <body>
 
@@ -53,7 +52,7 @@
         <label for="nombre_materia">Ingrese la nueva descripción:</label>
         <input type="text" id="nombre_materia" name="nombre_materia" value="${materia.nombre_materia}" required>
         <input type="hidden" value="${materia.id_materia}" name="id_materia">
-        <input type="submit" value="Aceptar">
+        <center><input type="submit" class="registrar" value="Aceptar"></center>
     </form>
     <a href="getListaMaterias">Volver a la lista</a>
 </div>
