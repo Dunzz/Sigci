@@ -19,6 +19,8 @@
 <%
     User user = (User) session.getAttribute("user");
     if(user != null){
+        String nombre = user.getNombre() + " " + user.getApellidos();
+        request.setAttribute("nombre", nombre);
 %>
 <header>
     <div class="user">
@@ -48,7 +50,7 @@
            268 -189 456 0 110 18 185 69 290 104 211 320 350 568 364 12 0 56 -4 99 -10z"/>
             </g>
         </svg>
-        Administrador
+        <%= nombre %>
     </div>
     <a class="logout-button" href="logout">Salir</a>
 </header>
@@ -77,8 +79,8 @@
     <br>
     <label>Ingrese su estado: </label>
     <select id="estado_usuario" name="estado_usuario" required>
-        <option value="1" ${user.estado_usuario == 1 ? 'selected' : ''}>1</option>
-        <option value="0" ${user.estado_usuario == 0 ? 'selected' : ''}>0</option>
+        <option value="1" ${user.estado_usuario == 1 ? 'selected' : ''}>Habilitar</option>
+        <option value="0" ${user.estado_usuario == 0 ? 'selected' : ''}>Desabilitar</option>
     </select>
 
     <br>

@@ -18,6 +18,8 @@
 <%
     User user = (User) session.getAttribute("user");
     if(user != null){
+        String nombre = user.getNombre() + " " + user.getApellidos();
+        request.setAttribute("nombre", nombre);
 %>
 <header>
 <div class="user">
@@ -47,7 +49,7 @@
            268 -189 456 0 110 18 185 69 290 104 211 320 350 568 364 12 0 56 -4 99 -10z"/>
         </g>
     </svg>
-    Administrador
+    <%= nombre %>
 </div>
 <a class="logout-button" href="logout">Salir</a>
 </header>
@@ -74,7 +76,7 @@
         <td><%=u.getEmail()%></td>
         <td><%=u.getFecha_creacion()%></td>
         <td><%=u.getId_division()%></td>
-        <td><%=u.getEstado_usuario()%></td>
+        <td><%= u.getEstado_usuario() == 1 ? "Habilitado" : "Deshabilitado" %></td>
         <td><a href="updateUser?id_usuario=<%=u.getId_usuario()%>">Actualizar</a></td> <!-- Funcionalidad de actualizar -->
         <td><a href="borrarUsuario?id_usuario=<%=u.getId_usuario()%>">Borrar</a></td> <!-- Funcionalidad de borrar -->
     </tr>
