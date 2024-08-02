@@ -19,6 +19,8 @@
 <%
     User u = (User) session.getAttribute("user");
     if(u != null){
+        String nombre = u.getNombre() + " " + u.getApellidos();
+        request.setAttribute("nombre", nombre);
 %>
 <header>
     <div class="user"> <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +49,7 @@
        -170 -128 -193 -94 -387 -94 -580 0 -68 34 -102 59 -171 128 -133 134 -189
        268 -189 456 0 110 18 185 69 290 104 211 320 350 568 364 12 0 56 -4 99 -10z"/>
         </g>
-    </svg> Bienvenido a administrador</div>
+    </svg> <%= nombre %></div>
 
 
 
