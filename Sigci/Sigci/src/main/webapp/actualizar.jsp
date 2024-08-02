@@ -79,8 +79,8 @@
     <br>
     <label>Ingrese su estado: </label>
     <select id="estado_usuario" name="estado_usuario" required>
-        <option value="1" ${user.estado_usuario == 1 ? 'selected' : ''}>1</option>
-        <option value="0" ${user.estado_usuario == 0 ? 'selected' : ''}>0</option>
+        <option value="1" ${user.estado_usuario == 1 ? 'selected' : ''}>Habilitar</option>
+        <option value="0" ${user.estado_usuario == 0 ? 'selected' : ''}>Desabilitar</option>
     </select>
 
     <br>
