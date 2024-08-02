@@ -75,7 +75,7 @@
         <td><%=u.getNombre()%> <%=u.getApellidos()%></td>
         <td><%=u.getEmail()%></td>
         <td><%=u.getFecha_creacion()%></td>
-        <td><%=u.getId_division()%></td>
+        <td><%=u.getDivisionNombre()%></td>
         <td><%= u.getEstado_usuario() == 1 ? "Habilitado" : "Deshabilitado" %></td>
         <td><a href="updateUser?id_usuario=<%=u.getId_usuario()%>">Actualizar</a></td> <!-- Funcionalidad de actualizar -->
         <td><a href="borrarUsuario?id_usuario=<%=u.getId_usuario()%>">Borrar</a></td> <!-- Funcionalidad de borrar -->

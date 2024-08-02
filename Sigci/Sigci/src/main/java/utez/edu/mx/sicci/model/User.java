@@ -2,6 +2,7 @@ package utez.edu.mx.sicci.model;
 
 public class User {
 
+    private String divisionNombre;
     private int id_usuario;
     private String nombre;
     private String apellidos;
@@ -186,5 +187,13 @@ public class User {
 
     public void setId_grupo(int id_grupo) {
         this.id_grupo = id_grupo;
+    }
+
+    public String getDivisionNombre() {
+        return divisionNombre;
+    }
+
+    public void setDivisionNombre(String divisionNombre) {
+        this.divisionNombre = divisionNombre;
     }
 }

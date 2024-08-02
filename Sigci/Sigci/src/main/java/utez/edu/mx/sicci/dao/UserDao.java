@@ -15,6 +15,9 @@ import static utez.edu.mx.sicci.utils.DatabaseConnectionManager.getConnection;
 
 public class UserDao {
     private static final String SELECT_ALL_USERS = "SELECT * FROM usuario where idtipo_usuario = 2";
+
+    private static final String SELECT_ALL_DOCENTE = "SELECT u.id_usuario, u.nombre, u.apellidos, u.email, u.curp, u.fecha_nacimiento, u.password, u.estado_password, u.nombre_usuario, u.fecha_creacion, u.estado_usuario, u.idtipo_usuario, d.nombre AS division_nombre, u.id_grupo FROM usuario u INNER JOIN division d ON u.id_division = d.id_division WHERE u.idtipo_usuario = 2;";
+
     private static final String SELECT_ALL_ASPIRANTES = "SELECT * FROM usuario where idtipo_usuario = 3";
 
     private static final String SELECT_USER_BY_ID = "SELECT id_usuario, nombre, apellidos, email, curp, nombre_usuario, estado_usuario FROM usuario WHERE id_usuario = ?";
@@ -114,6 +117,37 @@ public class UserDao {
                 u.setIdtipo_usuario(rs.getInt("idtipo_usuario"));
                 u.setId_division(rs.getInt("id_division"));
                 u.setId_grupo(rs.getInt("id_grupo"));
+                usuario.add(u);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return usuario;
+    }
+
+    public ArrayList<User> getAllDocente() {
+        ArrayList<User> usuario = new ArrayList<>();
+        try(
+                Connection con = getConnection();
+                PreparedStatement ps = con.prepareStatement(SELECT_ALL_DOCENTE);
+                ResultSet rs = ps.executeQuery()){
+            while (rs.next()) { // Iteramos cada fila resultado de la query
+                User u = new User();
+                u.setId_usuario(rs.getInt("id_usuario"));
+                u.setNombre(rs.getString("nombre"));
+                u.setApellidos(rs.getString("apellidos"));
+                u.setEmail(rs.getString("email"));
+                u.setCurp(rs.getString("curp"));
+                u.setFecha_nacimiento(rs.getString("fecha_nacimiento"));
+                u.setPassword(rs.getString("password"));
+                u.setEstado_password(rs.getString("estado_password"));
+                u.setEstado_usuario(rs.getInt("estado_usuario"));
+                u.setNombre_usuario(rs.getString("nombre_usuario"));
+                u.setFecha_creacion(rs.getString("fecha_creacion"));
+                u.setIdtipo_usuario(rs.getInt("idtipo_usuario"));
+                u.setId_grupo(rs.getInt("id_grupo"));
+                // Reemplazar el id_division con el nombre de la división
+                u.setDivisionNombre(rs.getString("division_nombre"));
                 usuario.add(u);
             }
         } catch (SQLException e) {

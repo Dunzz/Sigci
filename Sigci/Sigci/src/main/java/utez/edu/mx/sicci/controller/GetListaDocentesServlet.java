@@ -27,7 +27,7 @@ public class GetListaDocentesServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        List<User> lista_user = dao.getAll();
+        List<User> lista_user = dao.getAllDocente();
         req.setAttribute("lista_user", lista_user);
         RequestDispatcher rd = req.getRequestDispatcher("listaUsuarios.jsp");
         rd.forward(req,resp);
