@@ -33,7 +33,7 @@ public class UserServlet extends HttpServlet {
            if (u.getIdtipo_usuario()==1){
                ruta="menuAdminppal.jsp";
            } else if(u.getIdtipo_usuario()==2){
-               ruta="index.jsp";
+               ruta="menuDocppal.jsp";
            } else {
                ruta = "Alerta.jsp" ;
            }
