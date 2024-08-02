@@ -78,7 +78,7 @@
         <td><%=u.getEmail()%></td>
         <td><%=u.getFecha_creacion()%></td>
         <td><%=u.getId_division()%></td>
-        <td><%=u.getEstado_usuario()%></td>
+        <td><%= u.getEstado_usuario() == 1 ? "Aprobado" : "Desaprobado" %></td>
         <td><a href="updateAspirante?id_usuario=<%=u.getId_usuario()%>">Actualizar</a></td> <!-- Funcionalidad de actualizar -->
         <td><a href="borrarAspirante?id_usuario=<%=u.getId_usuario()%>">Borrar</a></td> <!-- Funcionalidad de borrar -->
     </tr>

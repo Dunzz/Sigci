@@ -26,8 +26,8 @@
     <br>
     <label>Ingrese su estado: </label>
     <select type="text" id="estado_usuario" name="estado_usuario" required>
-    <option value="1" ${user.estado_usuario == 1 ? 'selected' : ''}>1</option>
-    <option value="0" ${user.estado_usuario == 0 ? 'selected' : ''}>0</option>
+    <option value="1" ${user.estado_usuario == 1 ? 'selected' : ''}>Aprobar</option>
+    <option value="0" ${user.estado_usuario == 0 ? 'selected' : ''}>Desaprobar</option>
     </select>
     <br>
     <input type="hidden" value="${user.id_usuario}" name="id_usuario" />
