@@ -1,30 +1,4 @@
 
-.medioCirculo {
-    width: 70%;
-    height: 130vh; /* El 50% de la altura del viewport */
-    background-color: white; /* Color de fondo del cÃ­rculo */
-    position: relative;
-    overflow: hidden;
-}
-
-.medioCirculo:before {
-    content: "";
-    display: block;
-    width: 400%; /* Doble del ancho del contenedor para asegurar que cubra toda la anchura */
-    height: 900%;
-    border-radius: 100%; /* Hacer el cÃ­rculo */
-    background-color: #0B1956; /* Color de fondo del cÃ­rculo */
-    position: absolute;
-    left: -40%;
-    top: 0;
-    transform: translateX(-48%);
-}
-
-::-webkit-datetime-edit-year-field:not([aria-valuenow]),
-::-webkit-datetime-edit-month-field:not([aria-valuenow]),
-::-webkit-datetime-edit-day-field:not([aria-valuenow]) {
-    color: transparent;
-}
 
 /* Estilos generales */
 * {
@@ -80,60 +54,51 @@ header {
 }
 
 a {
-   color: white;
+    color: white;
     text-decoration: none;
 }
 
 
 .login-box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 400px;
-    padding: 40px;
-    transform: translate(-50%, -50%);
-    background: #f8f3ea;
-    box-sizing: border-box;
-    box-shadow: 0 15px 25px #0B1957;
-    border-radius: 10px;
-    z-index: 1; /* Para asegurarse de que esté delante del background-circle */
+    background-color: #f7f7f7;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-
-.login-box .user-box {
-    position: relative;
+.login-box h2 {
+    margin-bottom: 10px;
+    color: #333;
 }
 
-.login-box .user-box input {
-    width: 100%;
-    padding: 10px 0;
+form {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.user-box, .form-group {
+    flex: 1 1 45%;
+    margin-bottom: 10px;
+    position: flex;
+}
+.user-box input, .form-group select {
+    width: 50%;
+    padding: 5px;
     font-size: 16px;
-    color: #0B1957;
-    margin-bottom: 30px;
-    border: none;
-    border-bottom: 1px solid #0B1957;
-    outline: none;
-    background: transparent;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
-.login-box .user-box label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 10px 0;
-    font-size: 16px;
-    color: #0B1957;
-    pointer-events: none;
-    transition: .5s;
+.form-group select {
+    width: 50%; /* Ajusta el ancho del select aquí */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
-.login-box .user-box input:focus ~ label,
-.login-box .user-box input:valid ~ label {
-    top: -20px;
-    left: 0;
-    color: #bdb8b8;
-    font-size: 12px;
-}
+
 
 .registrar{
     border: none;
@@ -150,7 +115,8 @@ a {
     text-transform: uppercase;
     overflow: hidden;
     transition: .5s;
-    margin-top: 20px;
+    margin-left: -550%;
+    margin-top: 100px;
     letter-spacing: 4px;
     border: none;
     outline: none;

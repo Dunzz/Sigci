@@ -53,7 +53,7 @@
     </div>
     <a class="logout-button" href="logout">Salir</a>
 </header>
-<div class="medioCirculo"></div>
+
 <div class="container">
     <div class="login-box">
         <center><h2>Registrar Docentes</h2></center>
