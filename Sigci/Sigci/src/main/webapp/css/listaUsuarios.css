@@ -1,5 +1,10 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 header {
-    background-color: #ea1414;
+    background-color: #223B87;
     color: #fff;
     /*padding: 0px 8px;*/
     display: flex;
@@ -39,15 +44,25 @@ header {
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 20px;
+    line-height: 1.6;
+}
+
+.table-container {
+    display: flex;
+    margin: auto;
+    max-width: 1200px;
+    padding: 20px;
 }
 
 table {
-    width: 100%;
+
+    width: 80%;
     border-collapse: collapse;
+    border-spacing: 0;
     margin: 20px 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 thead {
@@ -67,17 +82,18 @@ th {
 td {
     border-bottom: 1px solid #ddd;
 }
-
-.table-container {
-    margin: auto;
-    max-width: 1200px;
+.logo {
+    max-width: 100px; /* Ajusta el tamaÃ±o del logo segÃºn sea necesario */
 }
 
-.logo{
-    content: " ";
-    position: absolute;
-    right: 90%;
-    z-index: 1;
-    top: 80%;
+/*Responsivo */
+@media (max-width: 768px) {
+
+    th, td {
+        padding: 5px;
+    }
+}
+.footer{
+    margin-top: 3%;
 
 }

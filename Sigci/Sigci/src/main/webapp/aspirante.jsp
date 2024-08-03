@@ -10,6 +10,7 @@
 
 </head>
 <body>
+<center>
 <table>
     <thead>
     <tr>
@@ -36,5 +37,6 @@
     <% }} %>
     </tbody>
 </table>
+</center>
 </body>
 </html>

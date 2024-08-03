@@ -1,3 +1,16 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+.footer{
+    margin-top: 3%;
+
+}
 header {
     background-color: #223B87;
     color: #fff;
@@ -34,20 +47,21 @@ header {
 .logout-button:hover{
     background-color: #57B6E6;
 }
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #f4f4f4;
+h2 {
+    font-weight: normal;
+    color: #000000;
+    margin: 10px 0;
+    text-align: center;
 }
 
 table {
-    width: 100%;
+    width: 80%;
     border-collapse: collapse;
+    border-spacing: 0;
     margin: 20px 0;
-    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
 th, td {
