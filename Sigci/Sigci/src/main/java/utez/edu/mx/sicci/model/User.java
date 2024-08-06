@@ -17,7 +17,7 @@ public class User {
     private int idtipo_usuario;
     private int id_division;
     private int id_grupo;
-
+    private String codigo;
 
     public User() {
 
@@ -75,6 +75,17 @@ public class User {
         this.idtipo_usuario = idtipo_usuario;
         this.id_division = id_division;
         this.id_grupo = id_grupo;
+    }
+
+    public User(int id_usuario, String nombre, String apellidos, String email, String curp, int estado_usuario, String nombre_usuario, String codigo) {
+        this.id_usuario = id_usuario;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.email = email;
+        this.curp = curp;
+        this.estado_usuario = estado_usuario;
+        this.nombre_usuario = nombre_usuario;
+        this.codigo = codigo;
     }
 
     public int getId_usuario() {
@@ -195,5 +206,13 @@ public class User {
 
     public void setDivisionNombre(String divisionNombre) {
         this.divisionNombre = divisionNombre;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 }
